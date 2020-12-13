@@ -8,7 +8,7 @@ const blockChainRoutes: Array<IAppRoute> = [
     path: '/',
     isExact: true,
     component: LandingPageContainer,
-    hocs: [],
+    hocs: ['useHeader', 'useFooter', 'useMultiThemes'],
     setUpStore: setUpFeature,
     childrenRoute: []
   }

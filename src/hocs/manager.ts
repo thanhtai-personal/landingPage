@@ -1,4 +1,6 @@
 import useMultiThemes from './theme'
+import useHeader from './layout/useHeader'
+import useFooter from './layout/useFooter'
 
 const combineHoc = (hocObj: { [key: string]: Function }) => {
   return Object.keys(hocObj).map((key) => hocObj[key])
@@ -7,10 +9,16 @@ const combineHoc = (hocObj: { [key: string]: Function }) => {
 function createHocs() {
   // Create an object which maps keys to hocs
   const hocObj: { [key: string]: Function } = {
-    useMultiThemes
+    useMultiThemes,
+    useHeader,
+    useFooter
   }
   // Create the initial combinedHOC
-  let hocs : Array<Function> = [ useMultiThemes ]
+  let hocs : Array<Function> = [
+    useMultiThemes,
+    useHeader,
+    useFooter
+  ]
 
   return {
     getHocsMap: () => hocObj,
