@@ -1,9 +1,9 @@
 import React from 'react'
 import { IHomeProps } from './interfaces'
 
-const HomeComponent: React.FC = (props: IHomeProps) => {
+const HomeComponent: React.FC<IHomeProps> = (props: IHomeProps) => {
     return (
-        <div> Home </div>
+        <div>{props.title || 'Home'}</div>
     )
 }
 

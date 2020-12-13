@@ -1,14 +1,16 @@
 import StoreSingleton from 'root/store/singleton'
 import homeReducer from './reducers/home.reducer'
-import { RouteGroups } from 'root/appRoute/enums'
+import { reducerNames } from './reducers/enums'
+
 
 
 const setupFeature = () => {
   const store = StoreSingleton.getInstance()
   let mapObject = store.reducerManager.getReducerMap()
-  if (!Object.keys(mapObject).includes(RouteGroups.blockChainGames)) {
-    store.reducerManager.add(RouteGroups.blockChainGames, homeReducer)
+  if (!Object.keys(mapObject).includes(reducerNames.home)) {
+    store.reducerManager.add(reducerNames.home, homeReducer)
     store.updateReducer()
+    console.log(store.getState())
   }
 }
 

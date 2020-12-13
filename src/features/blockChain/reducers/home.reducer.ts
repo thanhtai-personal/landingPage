@@ -12,7 +12,7 @@ interface IHomeState {
 }
 
 const initalState: IHomeState = {
-  
+  title: 'test-reducer-data'
 }
 
 const homeReducer = (state = initalState, payload: IPayLoad) => {

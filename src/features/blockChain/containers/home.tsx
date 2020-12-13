@@ -1,17 +1,19 @@
-import React from 'react'
+import React, { Suspense } from 'react'
 import { connect } from 'react-redux'
+import Loading from 'root/components/loading'
 import { IHomeContainerProps } from './interfaces'
-import { makeSuspenseComponent } from 'root/utils'
+import { reducerNames } from '../reducers/enums'
 
 const HomeComponent = React.lazy(() => import('./../components/home'))
-const Home = makeSuspenseComponent(HomeComponent)
 
 const HomeContainer: React.FC<IHomeContainerProps> = (props: IHomeContainerProps) => {
-    return <Home {...props} />
+    return <Suspense fallback={<Loading />}>
+        <HomeComponent {...props} />
+    </Suspense>
 }
 
 const mapStateToProps = (state: any) => ({
-
+    title: state[reducerNames.home]?.title
 })
 
 const mapProps = {}
