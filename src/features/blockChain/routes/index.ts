@@ -1,6 +1,6 @@
-import  HomeContainer from '../containers/home'
-import  LoginContainer from '../containers/login'
-import  RegisterContainer from '../containers/register'
+import HomeContainer from '../containers/home'
+import LoginContainer from '../containers/login'
+import RegisterContainer from '../containers/register'
 import setUpFeature from '../setup'
 import { IAppRoute } from 'root/managers/appRoute/interfaces'
 
@@ -18,7 +18,7 @@ const blockChainRoutes: Array<IAppRoute> = [
     key: 'register',
     path: '/register',
     isExact: true,
-    component: LoginContainer,
+    component: RegisterContainer,
     hocs: ['useHeader', 'useMultiThemes'],
     setUpStore: setUpFeature,
     childrenRoute: []
@@ -27,7 +27,7 @@ const blockChainRoutes: Array<IAppRoute> = [
     key: 'login',
     path: '/login',
     isExact: true,
-    component: RegisterContainer,
+    component: LoginContainer,
     hocs: ['useHeader', 'useMultiThemes'],
     setUpStore: setUpFeature,
     childrenRoute: []

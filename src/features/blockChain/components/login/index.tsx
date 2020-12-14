@@ -1,15 +1,15 @@
 import React from 'react'
-import { Container } from '@material-ui/core'
+import { Container, Paper } from '@material-ui/core'
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles'
 import backgroundImage from 'root/asserts/images/banner.jpg'
 
 const useStyles = (props: any) => (makeStyles((theme: Theme) =>
   createStyles({
     root: {
-      width: '100vw',
-      height: 'calc(100vh - 70px)',
+      width: '99vw',
+      height: 'calc(100vh - 87px)',
       backgroundImage: `url(${backgroundImage})`,
-      backgroundColor: 'yellow'
+      backgroundSize: 'cover'
     }
   })
 ))()
@@ -22,8 +22,10 @@ const Login = (props: ILoginProps) => {
   const classes = useStyles(props)
   return (
     <div className={classes.root}>
-      <Container maxWidth={'sm'}>
-
+      <Container maxWidth={'xs'}>
+        <Paper style={{ width: '100px', height: '200px', backgroundColor: 'white'}}>
+          
+        </Paper>
       </Container>
     </div>
   )
