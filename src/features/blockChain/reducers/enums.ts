@@ -1,3 +1,5 @@
 export enum reducerNames {
-    home = 'home'
+    home = 'home',
+    login = 'login',
+    register = 'register'
 }

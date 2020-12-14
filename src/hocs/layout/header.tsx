@@ -14,7 +14,6 @@ import drakenxImage from 'root/asserts/images/drakenx.svg'
 import drakenxImageNotext from 'root/asserts/images/logo_notext.svg'
 
 interface HeaderProps {
-
 }
 
 const headerBackgroundColor = '#15181d'
@@ -109,6 +108,16 @@ const Header = (props: HeaderProps) => {
     setIsOpenLanguage(!isOpenLanguage);
   }, [isOpenLanguage])
 
+  const handleClickLogin = useCallback(() => {
+    window.history.pushState({}, 'login', '/login')
+    window.location.reload()
+  }, [])
+
+  const handleClickRegister = useCallback(() => {
+    window.history.pushState({}, 'register', '/register')
+    window.location.reload()
+  }, [])
+
   return (
     <header className={classes.root}>
       <AppBar position='static'>
@@ -118,8 +127,8 @@ const Header = (props: HeaderProps) => {
               : <img alt='drakenx-image-no-text' src={drakenxImageNotext}></img>}
           </Typography>
           <ButtonGroup className={classes.authButtonGroup}>
-            <Button className={classes.loginButton} type={buttonType.Primary}>Login</Button>
-            <Button className={classes.registerButton} type={buttonType.Secondary}>Register</Button>
+            <Button className={classes.loginButton} onClick={handleClickLogin} type={buttonType.Primary}>Login</Button>
+            <Button className={classes.registerButton} onClick={handleClickRegister} type={buttonType.Secondary}>Register</Button>
           </ButtonGroup>
           <IconButton className={classes.settingsIcon}
             aria-controls='menu-appbar'
