@@ -7,6 +7,11 @@ const darkTheme = createMuiTheme({
         backgroundColor: 'darkslateblue',
       }
     },
+    MuiAppBar: {
+      colorPrimary: {
+        backgroundColor: '#000'
+      }
+    }
   }
 });
 

@@ -1,12 +1,12 @@
-import { createMuiTheme } from '@material-ui/core';
+import { createMuiTheme } from '@material-ui/core'
 
 const darkTheme = createMuiTheme({
   overrides: {
-    MuiContainer: {
-      root: {
-        backgroundColor: '#E2EEE2',
+    MuiAppBar: {
+      colorPrimary: {
+        backgroundColor: '#000'
       }
-    },
+    }
   }
 });
 
