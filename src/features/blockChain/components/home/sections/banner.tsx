@@ -1,8 +1,9 @@
 import React from 'react'
-import { Container, Grid, Typography, Button } from '@material-ui/core'
+import { Container, Grid, Typography } from '@material-ui/core'
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles'
 import bannerImage from 'root/asserts/images/banner.jpg'
 import rightElement from 'root/asserts/images/rightElement.svg'
+import Button, { buttonType } from 'root/components/materialUIs/button'
 
 interface BannerProps {
 
@@ -16,7 +17,7 @@ const useStyles = (props: BannerProps) => (makeStyles((theme: Theme) =>
       minHeight: '460px',
       justifyContent: 'center',
       backgroundRepeat: 'no-repeat',
-      backgroundSize: 'auto'
+      backgroundSize: 'cover',
     },
     rightElement: {
       float: 'right',
@@ -34,14 +35,8 @@ const useStyles = (props: BannerProps) => (makeStyles((theme: Theme) =>
     },
     playNowBtn: {
       marginTop: theme.spacing(2),
-      backgroundColor: 'white',
-      color: 'purple',
       width: '140px',
       height: '40px',
-      '&:hover': {
-        backgroundColor: 'white',
-        boxShadow: `0 0 10px 0 white`,
-      }
     },
     title: {
       marginTop: theme.spacing(2),
@@ -72,7 +67,7 @@ const Banner = (props: BannerProps) => {
               The ultimate entertainment platform within the Draken DeFi Universe.
               DRX token is the currency to access all features and games.
             </Typography>
-            <Button className={classes.playNowBtn}>PLAY NOW</Button>
+            <Button type={buttonType.Default} className={classes.playNowBtn}>PLAY NOW</Button>
           </Grid>
           <Grid item xs={7} className={classes.rightElement}>
             <picture>

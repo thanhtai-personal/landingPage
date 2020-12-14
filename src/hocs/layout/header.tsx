@@ -2,13 +2,14 @@ import React, { useCallback } from 'react'
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles'
 import {
   AppBar, Toolbar, Typography
-  , Button, IconButton, ButtonGroup
+  , IconButton, ButtonGroup
   , Grid, FormControl, Select
 } from '@material-ui/core'
 import {
   Settings as SettingsIcon
   , Language as LanguageIcon
 } from '@material-ui/icons'
+import Button, { buttonType } from 'root/components/materialUIs/button'
 import drakenxImage from 'root/asserts/images/drakenx.svg'
 
 interface HeaderProps {
@@ -16,8 +17,6 @@ interface HeaderProps {
 }
 
 const headerBackgroundColor = '#15181d'
-const buttonPrimaryColor = '#556df6'
-const buttonSecondaryColor = '#f79339'
 
 const useStyles = (props: HeaderProps) => (makeStyles((theme: Theme) =>
   createStyles({
@@ -48,25 +47,15 @@ const useStyles = (props: HeaderProps) => (makeStyles((theme: Theme) =>
     },
     loginButton: {
       textTransform: 'none',
-      backgroundColor: buttonPrimaryColor,
       border: 'none',
       borderRadius: '33px 0 0 33px',
       fontWeight: 600,
-      '&:hover': {
-        boxShadow: `0 0 10px 0 ${buttonPrimaryColor}`,
-        backgroundColor: buttonPrimaryColor,
-      }
     },
     registerButton: {
       textTransform: 'none',
-      backgroundColor: buttonSecondaryColor,
       border: 'none',
       borderRadius: '0 33px 33px 0',
       fontWeight: 600,
-      '&:hover': {
-        boxShadow: `0 0 10px 0 ${buttonSecondaryColor}`,
-        backgroundColor: buttonSecondaryColor,
-      }
     },
     menuLanguages: {
       backgroundColor: headerBackgroundColor,
@@ -81,7 +70,7 @@ const useStyles = (props: HeaderProps) => (makeStyles((theme: Theme) =>
 
     },
     languageSelection: {
-      backgroundColor: buttonPrimaryColor,
+      backgroundColor: '#556df6',
       color: 'white',
       display: 'flex',
       textAlignLast: 'center',
@@ -92,7 +81,7 @@ const useStyles = (props: HeaderProps) => (makeStyles((theme: Theme) =>
     },
     languageOption: {
       borderRadius: '5px',
-      backgroundColor: buttonPrimaryColor,
+      backgroundColor: '#556df6',
     },
     languageLabel: {
       verticalAlign: 'baseline',
@@ -134,8 +123,8 @@ const Header = (props: HeaderProps) => {
             </picture>
           </Typography>
           <ButtonGroup className={classes.authButtonGroup}>
-            <Button color='inherit' className={classes.loginButton}>Login</Button>
-            <Button color='inherit' className={classes.registerButton}>Register</Button>
+            <Button className={classes.loginButton} type={buttonType.Primary}>Login</Button>
+            <Button className={classes.registerButton} type={buttonType.Secondary}>Register</Button>
           </ButtonGroup>
           <IconButton className={classes.settingsIcon}
             aria-controls='menu-appbar'
@@ -150,8 +139,6 @@ const Header = (props: HeaderProps) => {
             <FormControl className={classes.formControl}>
               <Select
                 native
-                // value={state.age}
-                // onChange={handleChange}
                 className={classes.languageSelection}
               >
                 <option className={classes.languageOption} value={'english'}>English</option>

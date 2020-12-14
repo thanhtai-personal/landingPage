@@ -7,7 +7,7 @@ const darkTheme = createMuiTheme({
         backgroundColor: '#000'
       }
     }
-  }
+  },
 });
 
 export default darkTheme

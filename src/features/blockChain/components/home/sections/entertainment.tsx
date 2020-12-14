@@ -1,17 +1,60 @@
 import React from 'react'
 import {
   Container, Grid, Typography
-  , Card, CardContent, CardMedia
-  , CardActions, Button
 } from '@material-ui/core'
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles'
 import { PlayArrow as PlayArrowIcon } from '@material-ui/icons'
 import icGame1Image from 'root/asserts/images/icGame1.svg'
 import icGame2Image from 'root/asserts/images/icGame2.svg'
 import icGame3Image from 'root/asserts/images/icGame3.svg'
+import Card from 'root/components/materialUIs/card'
 interface EntertainmentProps {
 
 }
+
+const cards = [
+  {
+    key: 'DTrade',
+    mediaImage: icGame1Image,
+    content: {
+      title: 'DTrade',
+      description: `
+      Place your Long and Short positions which are automatically closed after 30 seconds!
+      A fast-paced and fun trading experience!`
+    },
+    actions: {
+      buttonText: 'Play',
+      ButtonIcon: PlayArrowIcon,
+      disabled: false
+    }
+  },
+  {
+    key: 'DRocket',
+    mediaImage: icGame2Image,
+    content: {
+      title: 'DRocket',
+      description: `How high can your rocket reach? Try and earn more DRX now!`
+    },
+    actions: {
+      buttonText: 'Comming Soon',
+      ButtonIcon: PlayArrowIcon,
+      disabled: true
+    }
+  },
+  {
+    key: 'DRKats',
+    mediaImage: icGame3Image,
+    content: {
+      title: 'DRKats',
+      description: `Gain insight into the market environment in seconds. Make better decisions and realise gains in minutes.`
+    },
+    actions: {
+      buttonText: 'Comming Soon',
+      ButtonIcon: PlayArrowIcon,
+      disabled: true
+    }
+  }
+]
 
 const useStyles = (props: EntertainmentProps) => (makeStyles((theme: Theme) =>
   createStyles({
@@ -19,16 +62,6 @@ const useStyles = (props: EntertainmentProps) => (makeStyles((theme: Theme) =>
       width: '100%',
       backgroundColor: 'white',
       padding: '50px 0 75px'
-    },
-    media: {
-      height: '280px'
-    },
-    gameCard: {
-      marginRight: theme.spacing(2),
-      height: '100%',
-      display: 'flex',
-      flexDirection: 'column',
-      justifyContent: 'space-between'
     },
     gameCards: {
       marginTop: theme.spacing(3),
@@ -48,80 +81,16 @@ const Entertainment = (props: EntertainmentProps) => {
         <Typography variant={'h6'} style={{ color: 'gray', fontSize: '14px' }}>
           Built on DRK Chain with absolute decentralization and transparency
         </Typography>
-        <Grid container className={classes.gameCards}>
-          <Grid item xs={4}>
-            <Card className={classes.gameCard}>
-              <CardMedia
-                className={classes.media}
-                image={icGame1Image}
-                title='Paella dish'
-              />
-              <CardContent>
-                <Typography variant={'h5'}>DTrade</Typography>
-                <Typography variant='body2' color='textSecondary' component='p'>
-                  Place your Long and Short positions which are automatically closed after 30 seconds!
-                  A fast-paced and fun trading experience!
-                </Typography>
-              </CardContent>
-              <CardActions>
-                {/* update milti theme later */}
-                <Button size='small' color='primary' style={{
-                  backgroundColor: '#556df6', color: 'white'
-                  , padding: '10px 10px 10px 10px'
-                }}>
-                  <PlayArrowIcon /> Play
-                </Button>
-              </CardActions>
-            </Card>
-          </Grid>
-          <Grid item xs={4}>
-            <Card className={classes.gameCard}>
-              <CardMedia
-                className={classes.media}
-                image={icGame2Image}
-                title='Paella dish'
-              />
-              <CardContent>
-                <Typography variant={'h5'}>DRocket</Typography>
-                <Typography variant='body2' color='textSecondary' component='p'>
-                  How high can your rocket reach? Try and earn more DRX now!
-                </Typography>
-              </CardContent>
-              <CardActions>
-                {/* update milti theme later */}
-                <Button disabled size='small' color='primary' style={{
-                  backgroundColor: '#556df6', color: 'white'
-                  , padding: '10px 10px 10px 10px', borderRadius: '5px'
-                }}>
-                  <PlayArrowIcon /> Comming Soon
-                </Button>
-              </CardActions>
-            </Card>
-          </Grid>
-          <Grid item xs={4}>
-            <Card className={classes.gameCard}>
-              <CardMedia
-                className={classes.media}
-                image={icGame3Image}
-                title='Paella dish'
-              />
-              <CardContent>
-                <Typography variant={'h5'}>DRKats</Typography>
-                <Typography variant='body2' color='textSecondary' component='p'>
-                  Gain insight into the market environment in seconds. Make better decisions and realise gains in minutes.
-                </Typography>
-              </CardContent>
-              <CardActions>
-                {/* update milti theme later */}
-                <Button disabled size='small' color='primary' style={{
-                  backgroundColor: '#556df6', color: 'white'
-                  , padding: '10px 10px 10px 10px'
-                }}>
-                  <PlayArrowIcon /> Comming Soon
-                </Button>
-              </CardActions>
-            </Card>
-          </Grid>
+        <Grid item container xs={12} className={classes.gameCards}>
+          {cards.map((card: any, index: number) => (<Grid key={`${card.key}-${index}`} item xs={4}>
+            <Card 
+              key={`${card.key}-${index}`}
+              mediaImage={card.mediaImage}
+              content={card.content}
+              actions={card.actions}
+              disabled={card.disabled}
+            />
+          </Grid>))}
         </Grid>
       </Container>
     </div>
