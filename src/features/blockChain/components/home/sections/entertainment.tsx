@@ -1,6 +1,6 @@
 import React from 'react'
 import {
-  Container, Grid, Typography
+  Container, Grid, Typography, useMediaQuery
 } from '@material-ui/core'
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles'
 import { PlayArrow as PlayArrowIcon } from '@material-ui/icons'
@@ -72,6 +72,8 @@ const useStyles = (props: EntertainmentProps) => (makeStyles((theme: Theme) =>
 ))()
 
 const Entertainment = (props: EntertainmentProps) => {
+  const minWidth900 = useMediaQuery('(min-width:900px)')
+  const minWidth500 = useMediaQuery('(min-width:500px)')
   const classes = useStyles(props)
 
   return (
@@ -82,7 +84,7 @@ const Entertainment = (props: EntertainmentProps) => {
           Built on DRK Chain with absolute decentralization and transparency
         </Typography>
         <Grid item container xs={12} className={classes.gameCards}>
-          {cards.map((card: any, index: number) => (<Grid key={`${card.key}-${index}`} item xs={4}>
+          {cards.map((card: any, index: number) => (<Grid key={`${card.key}-${index}`} item xs={minWidth500 ? minWidth900 ? 4 : 6: 12}>
             <Card 
               key={`${card.key}-${index}`}
               mediaImage={card.mediaImage}
