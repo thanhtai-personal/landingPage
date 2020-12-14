@@ -3,7 +3,7 @@ import { createStyles, makeStyles, Theme } from '@material-ui/core/styles'
 import {
   AppBar, Toolbar, Typography
   , IconButton, ButtonGroup
-  , Grid, FormControl, Select
+  , Grid, FormControl, Select, useMediaQuery
 } from '@material-ui/core'
 import {
   Settings as SettingsIcon
@@ -11,6 +11,7 @@ import {
 } from '@material-ui/icons'
 import Button, { buttonType } from 'root/components/materialUIs/button'
 import drakenxImage from 'root/asserts/images/drakenx.svg'
+import drakenxImageNotext from 'root/asserts/images/logo_notext.svg'
 
 interface HeaderProps {
 
@@ -66,9 +67,6 @@ const useStyles = (props: HeaderProps) => (makeStyles((theme: Theme) =>
       right: '0',
       padding: theme.spacing(2)
     },
-    formControl: {
-
-    },
     languageSelection: {
       backgroundColor: '#556df6',
       color: 'white',
@@ -89,7 +87,7 @@ const useStyles = (props: HeaderProps) => (makeStyles((theme: Theme) =>
     },
     languageIcon: {
       fontSize: '1.2rem',
-      top: '3px',
+      position: 'relative',
       opacity: '0.4',
       cursor: 'pointer',
       '&:hover': {
@@ -102,6 +100,7 @@ const useStyles = (props: HeaderProps) => (makeStyles((theme: Theme) =>
 
 
 const Header = (props: HeaderProps) => {
+  const minWidth400 = useMediaQuery('(min-width:400px)')
   const classes = useStyles(props)
 
   const [isOpenLanguage, setIsOpenLanguage] = React.useState<boolean>(false);
@@ -115,12 +114,8 @@ const Header = (props: HeaderProps) => {
       <AppBar position='static'>
         <Toolbar className={classes.toolBar}>
           <Typography className={classes.title}>
-            {/* eslint-disable-next-line */}
-            <picture>
-              {/* eslint-disable-next-line */}
-              <img alt='drakenx-image' src={drakenxImage}></img>
-              {/* eslint-disable-next-line */}
-            </picture>
+            {minWidth400 ? <img alt='drakenx-image' src={drakenxImage}></img>
+              : <img alt='drakenx-image-no-text' src={drakenxImageNotext}></img>}
           </Typography>
           <ButtonGroup className={classes.authButtonGroup}>
             <Button className={classes.loginButton} type={buttonType.Primary}>Login</Button>
@@ -136,7 +131,7 @@ const Header = (props: HeaderProps) => {
           <Grid className={classes.menuLanguages} style={{ display: isOpenLanguage ? 'flex' : 'none' }}>
             <LanguageIcon className={classes.languageIcon} />
             <Typography className={classes.languageLabel} align={'center'}>Languages</Typography>
-            <FormControl className={classes.formControl}>
+            <FormControl>
               <Select
                 native
                 className={classes.languageSelection}
