@@ -15,12 +15,16 @@ const useStyles = (props: AboutProps) => (makeStyles((theme: Theme) =>
       justifyContent: 'center',
       alignItems: 'center',
       marginTop: theme.spacing(3),
-      marginBottom: theme.spacing(7)
+      marginBottom: theme.spacing(7),
+      color: 'black'
     },
     content: {
-      padding: '30px 0 20px',
-      paddingTop: theme.spacing(3),
-      paddingBottom: theme.spacing(3),
+      paddingLeft: '13%',
+      width: '74%',
+      textAlign: 'center',
+      lineHeight: '28px',
+      paddingTop: '20px',
+      paddingBottom: '20px',
     },
     aboutContent: {
       width: '80%',

@@ -15,29 +15,36 @@ interface FooterProps {
 const useStyles = (props: FooterProps) => (makeStyles((theme: Theme) =>
   createStyles({
     root: {
-      backgroundColor: 'black',
+      backgroundColor: '#15181d',
       paddingTop: theme.spacing(5),
       paddingBottom: theme.spacing(5),
     },
     riskWarning: {
-      borderTop: 'solid 1px',
-      fontSize: '12px',
-      color: 'white',
-      opacity: 0.4,
-      paddingTop: theme.spacing(2),
-      width: '100%'
+      fontWeight: 400,
+      fontSize: '10px',
+      lineHeight: '18px',
+      color: '#77818b',
+      borderTop: '1px solid #292929',
+      paddingTop: '25px',
+      marginTop: '25px',
     },
     footerText: {
-      opacity: 0.4,
-      color: 'white'
+      fontWeight: 400,
+      fontSize: '14px',
+      paddingBottom: '15px',
+      display: 'block',
+      color: '#77818b',
     },
     footerLogo: {
-      marginBottom: theme.spacing(3)
+      marginBottom: '20px',
+      width: '140px'
     },
     footerTextTitle: {
-      opacity: 0.7,
-      fontWeight: 500,
-      color: 'white'
+      fontWeight: 600,
+      fontSize: '13px',
+      color: '#bfcbd0',
+      paddingBottom: '15px',
+      display: 'block',
     },
     linkText: {
       opacity: 0.4,
@@ -86,7 +93,7 @@ const Footer = (props: FooterProps) => {
       <TwitterIcon  className={classes.socialIcon} />Twitter
     </Typography></>
   const warning = <Grid item xs={12} className={classes.riskWarning}>
-    <span style={{ fontWeight: 600 }}>Risk Warning: </span>
+    <b>Risk Warning: </b>
   Trading and investing in digital options involves significant level of risk and is not suitable
     and/or appropriate for all clients. Please make sure you carefully consider your investment objectives,
     level of experience and risk appetite before buying or selling any digital asset. You should be aware
