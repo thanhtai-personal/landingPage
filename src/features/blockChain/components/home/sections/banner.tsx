@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container, Grid, Typography, useMediaQuery } from '@material-ui/core'
+import { Container, Typography } from '@material-ui/core'
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles'
 import bannerImage from 'root/asserts/images/banner.jpg'
 import rightElementImage from 'root/asserts/images/rightElement.svg'
@@ -12,71 +12,123 @@ interface BannerProps {
 const useStyles = (props: any) => (makeStyles((theme: Theme) =>
   createStyles({
     banner: {
-      width: '100%',
       backgroundImage: `url(${bannerImage})`,
-      minHeight: '460px',
-      justifyContent: 'center',
-      backgroundRepeat: 'no-repeat',
       backgroundSize: 'cover',
+      padding: '20px 0 0',
+      overflowX: 'hidden',
+      width: '100%',
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      '&:after': {
+        boxSizing: 'border-box'
+      },
+      '&:before': {
+        boxSizing: 'border-box'
+      },
+      '@media(max-width:1190px)': {
+        display: 'flex',
+        padding: '20px 0'
+      }
     },
-    rightElement: {
-      position: 'relative',
-      float: 'right',
-      marginRight: theme.spacing(2),
-      height: '100%',
-      minHeight: '460px',
-      width: '60%',
-      paddingLeft: props.minWidth1280 ? '50px' : theme.spacing(1),
+    bannerContent: {
+      alignItems: 'center',
+      justifyContent: 'space-between',
+      display: 'flex',
+      width: '1170px',
+      '&:after': {
+        boxSizing: 'border-box'
+      },
+      '&:before': {
+        boxSizing: 'border-box'
+      },
+      '@media(max-width:1190px)': {
+        display: 'flex',
+        padding: '15px 30px'
+      },
+      '@media(max-width:767px)': {
+        flexDirection: 'column',
+        display: 'flex',
+        width: '100%',
+        padding: '15px 0px'
+      }
     },
     leftElement: {
-      float: 'left',
-      width: props.minWidth1280 ? '40%' : '90%',
       display: 'flex',
       flexDirection: 'column',
       justifyContent: 'center',
       alignItems: 'flex-start',
-      flexBasis: props.minWidth1280 ? 'inherit' : 'auto',
-      maxWidth: props.minWidth1280 ? '410px' : '100%',
-    },
-    playNowBtn: {
-      marginTop: theme.spacing(2),
-      width: '140px',
-      height: '40px',
+      width: '40%',
+      marginBottom: '50px',
+      '@media(max-width:1190px)': {
+        width: '40%',
+        marginBottom: 0
+      },
+      '@media(max-width:767px)': {
+        width: '100%',
+        marginBottom: '30px',
+        alignItems: 'center'
+      }
     },
     title: {
-      marginTop: theme.spacing(2),
-      color: 'white'
+      color: '#fff',
+      fontWeight: 400,
+      fontSize: '40px',
+      lineHeight: '50px',
+      marginBottom: '15px',
+      textAlign: 'left',
+      '@media(max-width:1190px)': {
+        fontSize: '26px',
+        lineHeight: '30px'
+      },
+      '@media(max-width:767px)': {
+        lineHeight: '28px',
+        marginBottom: '15px'
+      }
     },
     subTitle: {
-      marginTop: theme.spacing(2),
-      color: 'white',
-      fontSize: '16px'
+      fontWeight: 400,
+      lineHeight: '24px',
+      color: '#fff',
+      fontSize: '15px',
+      '@media(max-width:1190px)': {
+        fontSize: '13px',
+        lineHeight: '20px'
+      }
     },
-    bannerContent: {
+    playNowBtn: {
+      width: '140px',
+      background: '#fff',
+      height: '40px',
+      fontWeight: 600,
+      fontSize: '14px',
+      marginTop: '30px',
+      borderRadius: '4px',
       display: 'flex',
-      height: '100%',
-      minHeight: '460px'
+      alignItems: 'center',
+      justifyContent: 'center',
+      padding: '0 10px',
+      cursor: 'pointer',
+      '@media(max-width:1190px)': {
+        marginTop: '140px',
+        width: '140px'
+      }
     },
     rightElementImage: {
-      height: props.minWidth1280 ? '100%' : 'auto',
-      minHeight: props.minWidth1280 ? '410px' : 'auto',
-      width: props.minWidth1280 ? 'auto' : '100%',
-      bottom: 0,
-      position: 'absolute',
-      left: 0,
-      minWidth: props.minWidth450 ? '410px' : 'auto',
+      marginBottom: 0,
+      width: '60%',
+      '@media(max-width:1190px)': {
+        marginBottom: '-30px'
+      },
+      '@media(max-width:767px)': {
+        width: '90%'
+      }
     },
-    bannerContentGrid: {
-      height: '100%',
-      minHeight: '460px',
-    }
   }),
 ))()
 
 const Banner = (props: BannerProps) => {
-  const minWidth1280 = useMediaQuery('(min-width:1280px)')
-  const minWidth450 = useMediaQuery('(min-width:450px)')
-  const classes = useStyles({ minWidth1280, minWidth450 })
+  const classes = useStyles(props)
 
   const leftElement = <>
     <Typography className={classes.title} variant={'h4'}>Fun Blockchain Games that Earn.</Typography>
@@ -87,19 +139,15 @@ const Banner = (props: BannerProps) => {
   const rightElement = <img alt='banner-item' src={rightElementImage} className={classes.rightElementImage}></img>
 
   return (
-    <div className={classes.banner}>
+    <section className={classes.banner}>
       <Container maxWidth='lg' className={classes.bannerContent}>
-        <Grid item container className={classes.bannerContentGrid}>
-          <Grid item xs={5} className={classes.leftElement}>
-            {leftElement}
-            <Button type={buttonType.Default} className={classes.playNowBtn}>PLAY NOW</Button>
-          </Grid>
-          <Grid item xs={7} className={classes.rightElement}>
-            {rightElement}
-          </Grid>
-        </Grid>
+        <aside className={classes.leftElement}>
+          {leftElement}
+          <Button type={buttonType.Default} className={classes.playNowBtn}>PLAY NOW</Button>
+        </aside>
+        {rightElement}
       </Container>
-    </div>
+    </section>
   )
 }
 

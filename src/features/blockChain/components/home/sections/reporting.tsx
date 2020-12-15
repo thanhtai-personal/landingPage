@@ -28,72 +28,103 @@ const reports = [
 const useStyles = (props: any) => (makeStyles((theme: Theme) =>
   createStyles({
     root: {
+      background: '#fff',
+      padding: '25px 0 0',
+      overflowX: 'hidden',
       width: '100%',
-      backgroundColor: 'white',
+      display: 'flex',
       justifyContent: 'center',
-      backgroundRepeat: 'no-repeat',
-      backgroundSize: 'auto'
+      alignItems: 'center',
+      '@media(max-width:1190px)': {
+        padding: '15px 0'
+      }
     },
     rightElement: {
-      float: 'right',
-      marginRight: theme.spacing(4),
-      width: props.minWidth1000 ? '60%' : '100%',
-      marginTop: props.minWidth1000 ? '0' : theme.spacing(3),
-      marginBottom: 0
+      '@media(max-width:767px)': {
+        gridTemplateColumns: 'auto',
+        gridColumnGap: '25px',
+        gridRowGap: '25px',
+      }
     },
     leftElement: {
-      float: 'left',
-      width: props.minWidth1000 ? '40%' : '100%',
-      maxWidth: props.minWidth1000 ? '410px' : '100%',
-      padding: props.minWidth1000 ? 'inherit' : `${
-        theme.spacing(2)
-      } ${
-        theme.spacing(20)
-      } ${
-        theme.spacing(2)
-      } ${
-        theme.spacing(20)
-      }`,
+      background: '#fff',
+      boxSizing: 'border-box',
+      borderRadius: '8px',
       display: 'flex',
       flexDirection: 'column',
-      justifyContent: 'center',
-      alignItems: 'flex-start',
-      marginRight: theme.spacing(20)
-    },
-    playNowBtn: {
-      marginTop: theme.spacing(2),
-      backgroundColor: 'white',
-      color: 'purple',
-      width: '140px',
-      height: '40px',
-      '&:hover': {
-        backgroundColor: 'white',
-        boxShadow: `0 0 10px 0 white`,
+      maxWidth: '410px',
+      marginRight: '110px',
+      '@media(max-width:1190px)': {
+        padding: '30px',
+        maxWidth: '300px',
+        marginRight: '20px',
+        marginBottom: 0
+      },
+      '@media(max-width:767px)': {
+        padding: '30px',
+        maxWidth: '100%',
+        marginRight: 0,
+        marginBottom: '30px',
       }
     },
     title: {
-      marginTop: theme.spacing(2),
+      fontWeight: 500,
+      fontSize: '28px',
+      lineHeight: '36px',
+      color: '#15181d',
+      '@media(max-width:1190px)': {
+        fontSize: '13px',
+        lineHeight: '22px',
+        marginTop: '23px',
+        marginBottom: '32px',
+      },
+      '@media(max-width:767px)': {
+        fontSize: '13px',
+        lineHeight: '24px',
+        marginTop: '23px',
+        marginBottom: '32px',
+      },
     },
-    subTitle: {
-      marginTop: theme.spacing(2),
-      fontSize: '16px'
-    },
-    bannerContent: {
-      display: 'flex'
+    desc: {
+      fontWeight: 400,
+      fontSize: '15px',
+      lineHeight: '24px',
+      color: '#77818b',
+      marginTop: '23px',
+      marginBottom: '32px',
+      '@media(max-width:1190px)': {
+        fontSize: '20px',
+        lineHeight: '26px'
+      },
+      '@media(max-width:767px)': {
+        fontSize: '20px',
+        lineHeight: '28px'
+      },
     },
     rightElementImage: {
-      width: props.minWidth1000 ? 'auto' : '100%',
-      height: props.minWidth1000 ? '300px' : 'auto',
-      marginTop: props.minWidth1000 ? 0 : theme.spacing(5)
+      width: '80%'
     },
     reportNumber: {
       color: '#556df6',
-      fontSize: '25px'
+      fontSize: '25px',
     },
     reportText: {
       color: '#15181d',
       fontSize: '13px',
-      lineHeight: '24px'
+      lineHeight: '24px',
+    },
+    container: {
+      display: 'flex',
+      width: '1170px',
+      '@media(max-width:1190px)': {
+        padding: '15px 30px'
+      },
+      '@media(max-width:767px)': {
+        padding: '15px',
+        flexDirection: 'column',
+        display: 'flex',
+        width: '100%'
+      }
     }
   }),
 ))()
@@ -104,7 +135,7 @@ const Reporting = (props: ReportingProps) => {
 
   const leftElement = (<>
     <Typography className={classes.title} variant={'h4'}>What if you can earn while having fun?</Typography>
-    <Typography className={classes.subTitle} variant={'h6'}>
+    <Typography className={classes.desc} variant={'h6'}>
       Beside the excitement that DrakenX brings, you will also have the opportunity to make a profit with your coins and tokens.
       Everything is fully decentralized and transparent!
     </Typography>
@@ -124,8 +155,8 @@ const Reporting = (props: ReportingProps) => {
   )
 
   return (
-    <div className={classes.root}>
-      <Container maxWidth='lg'>
+    <section className={classes.root}>
+      <Container maxWidth='lg' className={classes.container}>
         {minWidth1000 ? <Grid item container xs={12}>
           <Grid item xs={6} className={classes.leftElement}>
             {leftElement}
@@ -145,7 +176,7 @@ const Reporting = (props: ReportingProps) => {
         </>
         }
       </Container>
-    </div>
+    </section>
   )
 }
 

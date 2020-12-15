@@ -36,10 +36,10 @@ export const isElementInViewport = (el: HTMLElement) => {
     const windowHeight = window.innerHeight || document.documentElement.clientHeight
     const windowWidth = window.innerWidth || document.documentElement.clientWidth
     const rectBottom = rect.top + rect.height, rectRight = rect.left + rect.width
-    const isVerticalInView = (rect.top > 0 && rect.top <= windowHeight)
-        || (rect.top < 0 && rectBottom > 0)
+    const isVerticalInView = (rect.top >= 0 && rect.top <= windowHeight)
+        || (rect.top <= 0 && rectBottom >= 0)
     const isHorizonalInView = (rect.left > 0 && rect.left < windowWidth)
-        || (rect.left < 0 && rectRight > 0)
+        || (rect.left <= 0 && rectRight >= 0)
     return (isVerticalInView && isHorizonalInView)
 }
 
@@ -49,9 +49,7 @@ export const useLazyLoadSection = (WrappedComponent: React.FC, { elementId, widt
         const handleScroll = useCallback(() => {
             const sectionElement = document.getElementById(elementId)
             if (!isLoaded && sectionElement && isElementInViewport(sectionElement)) {
-                setTimeout(() => {
-                    setIsLoaded(true)
-                }, 200)
+                setIsLoaded(true)
             }
         }, [isLoaded])
 

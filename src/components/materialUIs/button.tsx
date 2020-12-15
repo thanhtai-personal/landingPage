@@ -5,6 +5,10 @@ import { ButtonType } from './enums'
 
 const useStyles = (props: any) => (makeStyles((theme: Theme) => createStyles({
   customMaterialUI: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    cursor: 'pointer',
     textTransform: 'none',
     backgroundColor: props?.backgroundColor,
     color: props?.textColor,
@@ -26,7 +30,7 @@ const MaterialUIButton = (props: any) => {
           textColor: 'white',
           boxShadowColor:'#556df6',
           backgroundHoverColor: '#556df6',
-          textHoverColor:'white'
+          textHoverColor:'white',
         }
       case ButtonType.Secondary:
         return {
@@ -34,7 +38,7 @@ const MaterialUIButton = (props: any) => {
           textColor: 'white',
           boxShadowColor:'#f79339',
           backgroundHoverColor: '#f79339',
-          textHoverColor:'white'
+          textHoverColor:'white',
         }
       case ButtonType.Default:
         return {
@@ -42,10 +46,10 @@ const MaterialUIButton = (props: any) => {
           textColor: '#556df6',
           boxShadowColor:'white',
           backgroundHoverColor: 'white',
-          textHoverColor:'#556df6'
+          textHoverColor:'#556df6',
         }
       default:
-        return {};
+        return {}
     }
   }, [])
   const classes = useStyles(getConstantFromButtonType(props?.type))

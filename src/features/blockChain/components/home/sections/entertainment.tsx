@@ -60,13 +60,73 @@ const useStyles = (props: EntertainmentProps) => (makeStyles((theme: Theme) =>
   createStyles({
     root: {
       width: '100%',
-      backgroundColor: 'white',
+      backgroundColor: '#fff',
       padding: '50px 0 75px'
     },
+    container: {
+      flexDirection: 'column',
+      lineHeight: '26px',
+      display: 'flex',
+      width: '1170px',
+      '@media(max-width:1190px)': {
+        padding: '15px 30px'
+      },
+      '@media(max-width:767px)': {
+        padding: '15px',
+        width: '100%'
+      }
+    },
+    title: {
+      display: 'flex',
+      flexDirection: 'column',
+      marginBottom: '50px',
+      '@media(max-width:1190px)': {
+        marginBottom: '30px'
+      },
+      '@media(max-width:767px)': {
+        alignItems: 'center',
+      }
+    },
+    titleText: {
+      fontWeight: 600,
+      fontSize: '28px',
+      lineHeight: '28px',
+      color: '#15181d',
+      marginBottom: '10px',
+      '@media(max-width:1190px)': {
+        fontSize: '20px',
+      }
+    },
+    subTitleText: {
+      fontWeight: 400,
+      fontSize: '15px',
+      lineHeight: '15px',
+      color: '#696d85',
+      '@media(max-width:1190px)': {
+        fontSize: '13px',
+        lineHeight: '18px',
+        width: 'auto'
+      },
+      '@media(max-width:767px)': {
+        textAlign: 'center'
+      }
+    },
     gameCards: {
-      marginTop: theme.spacing(3),
-      marginBottom: '4px',
-      bottom: 0,
+      display: 'flex',
+      '@media(max-width:1190px)': {
+        width: '100%',
+        flexWrap: 'wrap',
+        gridTemplateColumns: 'auto auto',
+        gridColumnGap: '15px',
+        gridRowGap: '15px',
+      },
+      '@media(max-width:767px)': {
+        margin: '0',
+        width: '100%',
+        gridTemplateColumns: 'auto',
+        gridColumnGap: '0',
+        gridRowGap: '15px',
+      }
     }
   })
 ))()
@@ -77,12 +137,14 @@ const Entertainment = (props: EntertainmentProps) => {
   const classes = useStyles(props)
 
   return (
-    <div className={classes.root}>
-      <Container maxWidth='lg'>
-        <Typography variant={'h4'} style={{ fontWeight: 600 }}>Entertainment Utopia</Typography>
-        <Typography variant={'h6'} style={{ color: 'gray', fontSize: '14px' }}>
-          Built on DRK Chain with absolute decentralization and transparency
-        </Typography>
+    <section className={classes.root}>
+      <Container maxWidth='lg' className={classes.container}>
+        <aside className={classes.title}>
+          <Typography variant={'h4'} className={classes.titleText}>Entertainment Utopia</Typography>
+          <Typography variant={'h6'} className={classes.subTitleText}>
+            Built on DRK Chain with absolute decentralization and transparency
+          </Typography>
+        </aside>
         <Grid item container xs={12} className={classes.gameCards}>
           {cards.map((card: any, index: number) => (<Grid key={`${card.key}-${index}`} item xs={minWidth500 ? minWidth900 ? 4 : 6: 12}>
             <Card 
@@ -95,7 +157,7 @@ const Entertainment = (props: EntertainmentProps) => {
           </Grid>))}
         </Grid>
       </Container>
-    </div>
+    </section>
   )
 }
 

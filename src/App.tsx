@@ -3,6 +3,7 @@ import { Provider } from 'react-redux'
 import { ConnectedRouter } from 'connected-react-router'
 import storeSingleton, { history } from './store/singleton'
 import AppRoute from './appRoute'
+import './app.css'
 
 const store = storeSingleton.getInstance()
 

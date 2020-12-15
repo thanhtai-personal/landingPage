@@ -5,32 +5,64 @@ import Button, { buttonType } from './button'
 
 const useStyles = (props: any) => (makeStyles((theme: Theme) => createStyles({
   root: {
-    border: 'solid 1px #15181d',
-    padding: theme.spacing(2),
-    height: '100%',
-    marginRight: theme.spacing(2),
-    borderRadius: '2%'
-  },
-  media: {
-    height: '280px'
-  },
-  card: {
-    height: '100%',
+    marginRight: '20px',
+    background: '#fff',
     display: 'flex',
     flexDirection: 'column',
-    justifyContent: 'space-between',
+    borderRadius: '12px',
+    border: '.7px solid #c0c9d4',
+    height: '100%',
+    '@media(max-width:1190px)': {
+      padding: 0,
+      justifyContent: 'end !important'
+    },
+    '@media(max-width:767px)': {
+      marginRight: 0,
+      marginBottom: '10px',
+      width: '100%'
+    }
+  },
+  media: {
+    width: 'calc(100% - 20px)',
+    padding: '10px',
+    fontSize: '100%',
+    verticalAlign: 'baseline',
     borderRadius: '2%'
   },
   actionButton: {
-    padding: theme.spacing(1),
-    borderRadius: '5px',
-    cursor: props.actions?.disabled ? 'not-allowed !important' : 'pointer',
-    color: 'white !important',
-    opacity: props.actions?.disabled ? 0.4 : 1,
-    backgroundColor: props.actions?.disabled ? '#bfcbd0' : '#556df6',
-    marginBottom: theme.spacing(2),
-    marginLeft: theme.spacing(2)
-
+    display: 'flex',
+    alignItems: 'center',
+    padding: '10px 20px !important',
+    width: 'auto',
+    marginBottom: '4px',
+    bottom: '0',
+  },
+  titleText: {
+    fontWeight: 500,
+    fontSize: '16px',
+    color: '#15181d',
+    padding: '10px 20px',
+  },
+  contentText: {
+    fontWeight: 400,
+    fontSize: '14px',
+    lineHeight: '22px',
+    color: '#77818b',
+    padding: '0 20px 20px',
+    height: '100px',
+  },
+  cardContent: {
+    padding: 0
+  },
+  actionButtonDisabled: {
+    color: '#fff !important',
+    opacity: 0.7,
+    backgroundColor: '#bfcbd0 !important',
+    cursor: 'not-allowed !important',
+    pointerEvents: 'unset',
+    '&:hover': {
+      boxShadow: 'none !important'
+    }
   }
 }),
 ))()
@@ -39,23 +71,21 @@ const MaterialUICard = (props: any) => {
   const classes = useStyles(props)
   const { mediaImage, className, content: { title, description }, actions: { buttonText, ButtonIcon, disabled } } = props
   return (
-    <div className={classes.root}>
-      <Card className={[classes.card, className].join(' ')}>
-        <CardMedia
-          className={classes.media}
-          image={mediaImage}
-        />
-        <CardContent>
-          <Typography variant={'h5'}>{title}</Typography>
-          <Typography variant='body2' color='textSecondary' component='p'>{description}</Typography>
-        </CardContent>
-        <CardActions>
-          <Button type={buttonType.Primary} className={classes.actionButton} disabled={disabled}>
-            <ButtonIcon /> {buttonText}
-          </Button>
-        </CardActions>
-      </Card>
-    </div>
+    <Card className={[classes.root, className].join(' ')}>
+      <img
+        className={classes.media}
+        src={mediaImage}
+      />
+      <CardContent className={classes.cardContent}>
+        <Typography className={classes.titleText}>{title}</Typography>
+        <Typography className={classes.contentText}>{description}</Typography>
+      </CardContent>
+      <CardActions>
+        <Button type={buttonType.Primary} className={disabled ? classes.actionButtonDisabled : classes.actionButton} disabled={disabled}>
+          <ButtonIcon /> {buttonText}
+        </Button>
+      </CardActions>
+    </Card>
   )
 }
 
