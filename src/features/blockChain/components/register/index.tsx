@@ -6,8 +6,8 @@ import backgroundImage from 'root/asserts/images/banner.jpg'
 const useStyles = (props: any) => (makeStyles((theme: Theme) =>
   createStyles({
     root: {
-      width: '99vw',
-      height: 'calc(100vh - 87px)',
+      width: '100vw',
+      height: 'calc(100vh - 70px)',
       backgroundImage: `url(${backgroundImage})`,
       backgroundSize: 'cover'
     }

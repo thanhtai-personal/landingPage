@@ -1,10 +1,11 @@
 import React, { useCallback } from 'react'
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles'
+import { Link } from 'react-router-dom'
 import {
   AppBar, Toolbar, Typography
   , IconButton, ButtonGroup
-  , Grid, FormControl, MenuList
-  , useMediaQuery, MenuItem, ListItemText
+  , Grid, FormControl
+  , useMediaQuery, ListItemText
 } from '@material-ui/core'
 import {
   Settings as SettingsIcon
@@ -153,6 +154,10 @@ const useStyles = (props: HeaderProps) => (makeStyles((theme: Theme) =>
       '&:before': {
         boxSizing: 'border-box'
       }
+    },
+    linkInButton: {
+      color: 'white',
+      textDecoration: 'none'
     }
   }),
 ))()
@@ -168,16 +173,6 @@ const Header = (props: HeaderProps) => {
     setIsOpenLanguage(!isOpenLanguage);
   }, [isOpenLanguage])
 
-  const handleClickLogin = useCallback(() => {
-    window.history.pushState({}, 'login', '/login')
-    window.location.reload()
-  }, [])
-
-  const handleClickRegister = useCallback(() => {
-    window.history.pushState({}, 'register', '/register')
-    window.location.reload()
-  }, [])
-
   return (
     <AppBar position='static' className={classes.root}>
       <Toolbar className={classes.toolBar}>
@@ -187,8 +182,8 @@ const Header = (props: HeaderProps) => {
         </Typography>
         <div className={classes.rightMenu}>
           <ButtonGroup className={classes.authButtonGroup}>
-            <Button className={classes.loginButton} onClick={handleClickLogin} type={buttonType.Primary}>Login</Button>
-            <Button className={classes.registerButton} onClick={handleClickRegister} type={buttonType.Secondary}>Register</Button>
+            <Button className={classes.loginButton} type={buttonType.Primary}><Link className={classes.linkInButton} to='/login'>Login</Link></Button>
+            <Button className={classes.registerButton} type={buttonType.Secondary}><Link className={classes.linkInButton} to='/register'>Register</Link></Button>
           </ButtonGroup>
           <IconButton className={classes.settingsIcon}
             aria-controls='menu-appbar'
