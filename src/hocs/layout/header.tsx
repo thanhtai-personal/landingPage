@@ -3,7 +3,7 @@ import { createStyles, makeStyles, Theme } from '@material-ui/core/styles'
 import {
   AppBar, Toolbar, Typography
   , IconButton, ButtonGroup
-  , Grid, FormControl, Select
+  , Grid, FormControl, MenuList
   , useMediaQuery, MenuItem, ListItemText
 } from '@material-ui/core'
 import {
@@ -11,6 +11,7 @@ import {
   , Language as LanguageIcon
 } from '@material-ui/icons'
 import Button, { buttonType } from 'root/components/materialUIs/button'
+import SelectionMenu from 'root/components/materialUIs/menuList'
 import drakenxImage from 'root/asserts/images/drakenx.svg'
 import drakenxImageNotext from 'root/asserts/images/logo_notext.svg'
 import enFlagImage from 'root/asserts/images/en-US.svg'
@@ -135,10 +136,6 @@ const useStyles = (props: HeaderProps) => (makeStyles((theme: Theme) =>
       fontSize: '12px',
       fontWeight: 300
     },
-    selectMenuItem: {
-      color: '#fff',
-      backgroundColor: '#556df6'
-    },
     languageLabel: {
     },
     languageIcon: {
@@ -204,14 +201,14 @@ const Header = (props: HeaderProps) => {
             <div className={classes.settingItems}>
               <Typography className={classes.languageLabel} align={'left'}><LanguageIcon className={classes.languageIcon} />Languages</Typography>
               <FormControl className={classes.actions}>
-                <Select className={classes.languageSelection} defaultValue={'english'}>
-                  <MenuItem value='english' className={classes.selectMenuItem}>
+                <SelectionMenu defaultValue={'english'}  className={classes.languageSelection} onClickItem={() => { }} items={[{
+                  key: 'english', label: (
                     <div className={classes.languageMenuOption}>
-                      <img alt='en-us-img' src={enFlagImage} className={classes.selectIcon} />   
+                      <img alt='en-us-img' src={enFlagImage} className={classes.selectIcon} />
                       <ListItemText className={classes.selectText} primary='English' />
                     </div>
-                  </MenuItem>
-                </Select>
+                  )
+                }]} />
               </FormControl>
             </div>
           </Grid>

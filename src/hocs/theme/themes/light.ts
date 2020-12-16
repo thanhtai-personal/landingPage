@@ -6,6 +6,11 @@ const darkTheme = createMuiTheme({
       colorPrimary: {
         backgroundColor: '#000'
       }
+    },
+    MuiMenu: {
+      paper: {
+        backgroundColor: '#556df6',
+      }
     }
   },
 });
