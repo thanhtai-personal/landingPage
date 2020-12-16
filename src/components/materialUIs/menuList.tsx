@@ -6,6 +6,7 @@ import Paper from '@material-ui/core/Paper'
 import Popper from '@material-ui/core/Popper'
 import MenuItem from '@material-ui/core/MenuItem'
 import MenuList from '@material-ui/core/MenuList'
+import { ExpandMore as ExpandMoreIcon, ExpandLess as ExpandLessIcon } from '@material-ui/icons'
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles'
 
 interface ISelectionMenuProps {
@@ -21,7 +22,6 @@ const useStyles = makeStyles((theme: Theme) =>
       display: 'flex',
       color: '#fff',
       backgroundColor: '#556df6',
-      width: '120px',
       borderRadius: '4px'
     },
     paper: {
@@ -39,6 +39,8 @@ const useStyles = makeStyles((theme: Theme) =>
       transition: 'all .3s cubic-bezier(.645,.045,.355,1) 0s',
       color: '#fff',
       alignItems: 'center',
+      paddingLeft: '3px',
+      paddingRight: '3px',
       '&:hover': {
         boxShadow: `0 0 10px 0 #556df6`,
         backgroundColor: '#556df6',
@@ -103,6 +105,7 @@ export default function SelectionMenu(props: ISelectionMenuProps) {
         className={classes.selectionButton}
       >
         {items.find((it) => (it.key === defaultValue))?.label}
+        {open ?  <ExpandLessIcon /> : <ExpandMoreIcon />}
       </Button>
       <Popper open={open} className={classes.menuOptionsPanel} anchorEl={anchorRef.current} role={undefined} transition disablePortal>
         {({ TransitionProps, placement }) => (
