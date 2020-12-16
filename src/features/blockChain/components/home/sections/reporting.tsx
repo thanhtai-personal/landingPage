@@ -40,6 +40,7 @@ const useStyles = (props: any) => (makeStyles((theme: Theme) =>
       }
     },
     rightElement: {
+      flexBasis: 'unset',
       '@media(max-width:767px)': {
         gridTemplateColumns: 'auto',
         gridColumnGap: '25px',
@@ -68,10 +69,26 @@ const useStyles = (props: any) => (makeStyles((theme: Theme) =>
       }
     },
     title: {
-      fontWeight: 500,
+      fontWeight: 550,
       fontSize: '28px',
       lineHeight: '36px',
       color: '#15181d',
+      '@media(max-width:1190px)': {
+        fontSize: '20px',
+        lineHeight: '26px'
+      },
+      '@media(max-width:767px)': {
+        fontSize: '20px',
+        lineHeight: '28px'
+      },
+    },
+    desc: {
+      fontWeight: 400,
+      fontSize: '15px',
+      lineHeight: '24px',
+      color: '#77818b',
+      marginTop: '23px',
+      marginBottom: '32px',
       '@media(max-width:1190px)': {
         fontSize: '13px',
         lineHeight: '22px',
@@ -83,22 +100,6 @@ const useStyles = (props: any) => (makeStyles((theme: Theme) =>
         lineHeight: '24px',
         marginTop: '23px',
         marginBottom: '32px',
-      },
-    },
-    desc: {
-      fontWeight: 400,
-      fontSize: '15px',
-      lineHeight: '24px',
-      color: '#77818b',
-      marginTop: '23px',
-      marginBottom: '32px',
-      '@media(max-width:1190px)': {
-        fontSize: '20px',
-        lineHeight: '26px'
-      },
-      '@media(max-width:767px)': {
-        fontSize: '20px',
-        lineHeight: '28px'
       },
     },
     rightElementImage: {
@@ -125,7 +126,7 @@ const useStyles = (props: any) => (makeStyles((theme: Theme) =>
         display: 'flex',
         width: '100%'
       }
-    }
+    },
   }),
 ))()
 
@@ -147,12 +148,7 @@ const Reporting = (props: ReportingProps) => {
     </Grid>
   </>)
 
-  const rightElement = (
-    <picture>
-      <img alt='reporting-item' src={reportingRightImage} className={classes.rightElementImage}>
-      </img>
-    </picture>
-  )
+  const rightElement = (<img alt='reporting-item' src={reportingRightImage} className={classes.rightElementImage}></img>)
 
   return (
     <section className={classes.root}>
@@ -170,7 +166,7 @@ const Reporting = (props: ReportingProps) => {
           <Grid item xs={12} className={classes.leftElement}>
             {leftElement}
           </Grid>
-          <Grid item xs={12}>
+          <Grid item xs={12} className={classes.rightElement}>
             {rightElement}
           </Grid>
         </>

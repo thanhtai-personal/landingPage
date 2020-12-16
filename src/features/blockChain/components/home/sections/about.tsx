@@ -11,24 +11,43 @@ interface AboutProps {
 const useStyles = (props: AboutProps) => (makeStyles((theme: Theme) =>
   createStyles({
     root: {
-      backgroundColor: 'white',
+      background: '#fff',
+      padding: '50px 0 75px',
+      overflowX: 'hidden',
+      width: '100%',
+      display: 'flex',
       justifyContent: 'center',
       alignItems: 'center',
-      marginTop: theme.spacing(3),
-      marginBottom: theme.spacing(7),
-      color: 'black'
+      '@media(max-width:1190px)': {
+        padding: '15px 0 30px'
+      },
     },
     content: {
-      paddingLeft: '13%',
-      width: '74%',
-      textAlign: 'center',
-      lineHeight: '28px',
-      paddingTop: '20px',
-      paddingBottom: '20px',
+      justifyContent: 'center',
+      alignItems: 'center',
+      flexDirection: 'column',
+      display: 'flex',
+      '@media(max-width:1190px and min-width:768px)': {
+        display: 'flex',
+        padding: '15px 30px',
+        width: '100%',
+      },
+      '@media(max-width:767px)': {
+        display: 'flex',
+        padding: '15px',
+      },
     },
     aboutContent: {
+      padding: '30px 0 20px',
       width: '80%',
-      marginLeft: '10%'
+      textAlign: 'center',
+      lineHeight: '28px',
+      color: 'black'
+    },
+    clientName: {
+      padding: '20px 0 40px',
+      color: '#556df6',
+      fontSize: '18px',
     }
   }),
 ))()
@@ -37,24 +56,22 @@ const Reporting = (props: AboutProps) => {
   const classes = useStyles(props)
 
   return (
-    <div className={classes.root}>
-      <Container maxWidth='lg'>
-        <div className={classes.aboutContent}>
-          <img alt='about-start' style={{width: '100%'}} src={startDividerImage}></img>
-          <Typography className={classes.content} align={'center'}>
-            The combination of Games and Blockchain has created
-            a fascinating solution for financial management in the virtual world.
-            Beyond the entertainment offered by games, we believe DrakenX is also
-            bringing more value to the community.
-            The goal of DrakenX is to continuously
-            launch new game genres that can be combined with
-            DRK Chain to provide more entertaining-and-profitable options!
-          <Typography align={'center'} style={{ color: 'blue' }}>Jacob Jones - GAMER</Typography>
-          </Typography>
-          <img alt='about-end' style={{width: '100%'}} src={endDividerImage}></img>
-        </div>
+    <section className={classes.root}>
+      <Container maxWidth='lg' className={classes.aboutContent}>
+        <img alt='about-start' style={{ width: '100%' }} src={startDividerImage}></img>
+        <Typography className={classes.content} align={'center'}>
+          The combination of Games and Blockchain has created
+          a fascinating solution for financial management in the virtual world.
+          Beyond the entertainment offered by games, we believe DrakenX is also
+          bringing more value to the community.
+          The goal of DrakenX is to continuously
+          launch new game genres that can be combined with
+          DRK Chain to provide more entertaining-and-profitable options!
+          <Typography align={'center'} className={classes.clientName}>Jacob Jones - GAMER</Typography>
+        </Typography>
+        <img alt='about-end' style={{ width: '100%' }} src={endDividerImage}></img>
       </Container>
-    </div>
+    </section>
   )
 }
 

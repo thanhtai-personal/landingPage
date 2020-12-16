@@ -87,7 +87,7 @@ const Footer = (props: FooterProps) => {
     <Typography className={classes.linkText} style={{ opacity: 1, color: 'steelblue' }} variant='body2'>
       <TelegramIcon className={classes.socialIcon} />Telegram
     </Typography>
-    <Typography className={classes.linkText} style={{ opacity: 1, color: 'blue' }} variant='body2'>
+    <Typography className={classes.linkText} style={{ opacity: 1, color: '#556df6' }} variant='body2'>
       <FacebookIcon  className={classes.socialIcon} />Facebook</Typography>
     <Typography className={classes.linkText} style={{ opacity: 1, color: 'steelblue' }} variant='body2'>
       <TwitterIcon  className={classes.socialIcon} />Twitter

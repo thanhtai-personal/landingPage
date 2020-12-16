@@ -69,11 +69,11 @@ const useStyles = (props: EntertainmentProps) => (makeStyles((theme: Theme) =>
       display: 'flex',
       width: '1170px',
       '@media(max-width:1190px)': {
-        padding: '15px 30px'
+        padding: '15px 30px',
+        width: '100%'
       },
       '@media(max-width:767px)': {
-        padding: '15px',
-        width: '100%'
+        padding: '15px'
       }
     },
     title: {
@@ -127,13 +127,16 @@ const useStyles = (props: EntertainmentProps) => (makeStyles((theme: Theme) =>
         gridColumnGap: '0',
         gridRowGap: '15px',
       }
+    },
+    entertainmentCard: {
+      marginRight: '20px'
     }
   })
 ))()
 
 const Entertainment = (props: EntertainmentProps) => {
-  const minWidth900 = useMediaQuery('(min-width:900px)')
-  const minWidth500 = useMediaQuery('(min-width:500px)')
+  const minWidth1190 = useMediaQuery('(min-width:1190px)')
+  const minWidth767 = useMediaQuery('(min-width:767px)')
   const classes = useStyles(props)
 
   return (
@@ -146,8 +149,9 @@ const Entertainment = (props: EntertainmentProps) => {
           </Typography>
         </aside>
         <Grid item container xs={12} className={classes.gameCards}>
-          {cards.map((card: any, index: number) => (<Grid key={`${card.key}-${index}`} item xs={minWidth500 ? minWidth900 ? 4 : 6: 12}>
+          {cards.map((card: any, index: number) => (<Grid key={`${card.key}-${index}`} item xs={minWidth767 ? minWidth1190 ? 4 : 5: 12}>
             <Card 
+              className={classes.entertainmentCard}
               key={`${card.key}-${index}`}
               mediaImage={card.mediaImage}
               content={card.content}

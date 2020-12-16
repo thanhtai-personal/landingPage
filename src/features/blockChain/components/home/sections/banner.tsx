@@ -42,7 +42,7 @@ const useStyles = (props: any) => (makeStyles((theme: Theme) =>
       '&:before': {
         boxSizing: 'border-box'
       },
-      '@media(max-width:1190px)': {
+      '@media(max-width:1190px and min-width:768px)': {
         display: 'flex',
         padding: '15px 30px'
       },
@@ -60,14 +60,15 @@ const useStyles = (props: any) => (makeStyles((theme: Theme) =>
       alignItems: 'flex-start',
       width: '40%',
       marginBottom: '50px',
-      '@media(max-width:1190px)': {
+      '@media(max-width:1190px and min-width:768px)': {
         width: '40%',
         marginBottom: 0
       },
       '@media(max-width:767px)': {
         width: '100%',
         marginBottom: '30px',
-        alignItems: 'center'
+        alignItems: 'center',
+        textAlign: 'center'
       }
     },
     title: {
@@ -77,11 +78,12 @@ const useStyles = (props: any) => (makeStyles((theme: Theme) =>
       lineHeight: '50px',
       marginBottom: '15px',
       textAlign: 'left',
-      '@media(max-width:1190px)': {
+      '@media(max-width:1190px and min-width:768px)': {
         fontSize: '26px',
         lineHeight: '30px'
       },
       '@media(max-width:767px)': {
+        fontSize: '26px',
         lineHeight: '28px',
         marginBottom: '15px'
       }
@@ -93,14 +95,15 @@ const useStyles = (props: any) => (makeStyles((theme: Theme) =>
       fontSize: '15px',
       '@media(max-width:1190px)': {
         fontSize: '13px',
-        lineHeight: '20px'
+        lineHeight: '20px',
+        width: '80%'
       }
     },
     playNowBtn: {
       width: '140px',
       background: '#fff',
       height: '40px',
-      fontWeight: 600,
+      fontWeight: 400,
       fontSize: '14px',
       marginTop: '30px',
       borderRadius: '4px',
@@ -112,12 +115,15 @@ const useStyles = (props: any) => (makeStyles((theme: Theme) =>
       '@media(max-width:1190px)': {
         marginTop: '140px',
         width: '140px'
+      },
+      '@media(max-width:767px)': {
+        marginTop: '30px'
       }
     },
     rightElementImage: {
       marginBottom: 0,
       width: '60%',
-      '@media(max-width:1190px)': {
+      '@media(max-width:1190px and min-width:768px)': {
         marginBottom: '-30px'
       },
       '@media(max-width:767px)': {

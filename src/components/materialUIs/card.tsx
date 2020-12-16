@@ -1,6 +1,6 @@
 import React from 'react'
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles'
-import { Card, CardMedia, CardActions, CardContent, Typography } from '@material-ui/core'
+import { Card, CardActions, CardContent, Typography } from '@material-ui/core'
 import Button, { buttonType } from './button'
 
 const useStyles = (props: any) => (makeStyles((theme: Theme) => createStyles({
@@ -12,7 +12,7 @@ const useStyles = (props: any) => (makeStyles((theme: Theme) => createStyles({
     borderRadius: '12px',
     border: '.7px solid #c0c9d4',
     height: '100%',
-    '@media(max-width:1190px)': {
+    '@media(max-width:1190px and min-width:768px)': {
       padding: 0,
       justifyContent: 'end !important'
     },
@@ -32,7 +32,7 @@ const useStyles = (props: any) => (makeStyles((theme: Theme) => createStyles({
   actionButton: {
     display: 'flex',
     alignItems: 'center',
-    padding: '10px 20px !important',
+    padding: '8px 15px',
     width: 'auto',
     marginBottom: '4px',
     bottom: '0',
@@ -81,7 +81,7 @@ const MaterialUICard = (props: any) => {
         <Typography className={classes.contentText}>{description}</Typography>
       </CardContent>
       <CardActions>
-        <Button type={buttonType.Primary} className={disabled ? classes.actionButtonDisabled : classes.actionButton} disabled={disabled}>
+        <Button type={buttonType.Primary} className={[classes.actionButton, disabled && classes.actionButtonDisabled].join(' ')} disabled={disabled}>
           <ButtonIcon /> {buttonText}
         </Button>
       </CardActions>
