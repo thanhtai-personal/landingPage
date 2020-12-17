@@ -63,6 +63,9 @@ const useStyles = (props: any) => (makeStyles((theme: Theme) => createStyles({
     '&:hover': {
       boxShadow: 'none !important'
     }
+  },
+  cardActions: {
+    padding: '10px 20px'
   }
 }),
 ))()
@@ -80,7 +83,7 @@ const MaterialUICard = (props: any) => {
         <Typography className={classes.titleText}>{title}</Typography>
         <Typography className={classes.contentText}>{description}</Typography>
       </CardContent>
-      <CardActions>
+      <CardActions className={classes.cardActions}>
         <Button type={buttonType.Primary} className={[classes.actionButton, disabled && classes.actionButtonDisabled].join(' ')} disabled={disabled}>
           <ButtonIcon /> {buttonText}
         </Button>

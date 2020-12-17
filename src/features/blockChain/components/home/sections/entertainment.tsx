@@ -36,7 +36,7 @@ const cards = [
       description: `How high can your rocket reach? Try and earn more DRX now!`
     },
     actions: {
-      buttonText: 'Comming Soon',
+      buttonText: 'Coming Soon',
       ButtonIcon: PlayArrowIcon,
       disabled: true
     }
@@ -49,7 +49,7 @@ const cards = [
       description: `Gain insight into the market environment in seconds. Make better decisions and realise gains in minutes.`
     },
     actions: {
-      buttonText: 'Comming Soon',
+      buttonText: 'Coming Soon',
       ButtonIcon: PlayArrowIcon,
       disabled: true
     }
