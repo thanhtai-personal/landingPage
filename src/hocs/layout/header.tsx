@@ -74,6 +74,9 @@ const useStyles = (props: HeaderProps) => (makeStyles((theme: Theme) =>
       '@media(max-width:767px)': {
         padding: '0 20px'
       },
+      '&:hover': {
+        transform: 'scale(1.1)'
+      }
     },
     registerButton: {
       height: '32px',
@@ -83,6 +86,9 @@ const useStyles = (props: HeaderProps) => (makeStyles((theme: Theme) =>
       '@media(max-width:767px)': {
         padding: '0 20px'
       },
+      '&:hover': {
+        transform: 'scale(1.1)'
+      }
     },
     menuLanguages: {
       zIndex: 2,

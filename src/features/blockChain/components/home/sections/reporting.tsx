@@ -103,7 +103,10 @@ const useStyles = (props: any) => (makeStyles((theme: Theme) =>
       },
     },
     rightElementImage: {
-      width: '80%'
+      width: '80%',
+      '&:hover': {
+        transform: 'rotate(180deg)',
+      }
     },
     reportNumber: {
       color: '#556df6',

@@ -118,6 +118,9 @@ const useStyles = (props: any) => (makeStyles((theme: Theme) =>
       },
       '@media(max-width:767px)': {
         marginTop: '30px'
+      },
+      '&:hover': {
+        transform: 'rotate(-10deg) scale(1.1)',
       }
     },
     rightElementImage: {

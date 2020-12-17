@@ -129,7 +129,10 @@ const useStyles = (props: EntertainmentProps) => (makeStyles((theme: Theme) =>
       }
     },
     entertainmentCard: {
-      marginRight: '20px'
+      marginRight: '20px',
+      '&:hover': {
+        transform: 'rotate(5deg) scale(0.9)',
+      }
     }
   })
 ))()
