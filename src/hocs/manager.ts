@@ -1,6 +1,7 @@
 import useMultiThemes from './theme'
 import useHeader from './layout/useHeader'
 import useFooter from './layout/useFooter'
+import { IHocProps } from 'root/managers/appRoute/interfaces'
 
 const combineHoc = (hocObj: { [key: string]: Function }) => {
   return Object.keys(hocObj).map((key) => hocObj[key])
@@ -29,8 +30,8 @@ function createHocs() {
     },
 
 
-    call: (hocName: string, wrappedComponent: React.FC) => {
-      return hocObj[hocName](wrappedComponent)
+    call: (hocProps: IHocProps, wrappedComponent: React.FC) => {
+      return hocObj[hocProps.key](wrappedComponent, [...hocProps.params])
     },
 
     // Adds a new HOC with the specified key

@@ -10,16 +10,16 @@ const blockChainRoutes: Array<IAppRoute> = [
     path: '/',
     isExact: true,
     component: HomeContainer,
-    hocs: ['useHeader', 'useFooter', 'useMultiThemes'],
+    hocs: [{ key: 'useHeader', params: [] }, { key: 'useFooter', params: [] }, { key: 'useMultiThemes', params: [] }],
     setUpStore: setUpFeature,
     childrenRoute: []
   },
   {
     key: 'register',
-    path: '/register',
+    path: '/registration',
     isExact: true,
     component: RegisterContainer,
-    hocs: ['useHeader', 'useMultiThemes'],
+    hocs: [{ key: 'useHeader', params: [true] }, { key: 'useMultiThemes', params: [] }],
     setUpStore: setUpFeature,
     childrenRoute: []
   },
@@ -28,7 +28,7 @@ const blockChainRoutes: Array<IAppRoute> = [
     path: '/login',
     isExact: true,
     component: LoginContainer,
-    hocs: ['useHeader', 'useMultiThemes'],
+    hocs: [{ key: 'useHeader', params: [] }, { key: 'useMultiThemes', params: [] }],
     setUpStore: setUpFeature,
     childrenRoute: []
   }

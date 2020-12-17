@@ -1,6 +1,6 @@
 import React, { Route } from 'react-router'
 import hocSingleton from 'root/hocs/singleton'
-import { IAppRoute } from './interfaces'
+import { IAppRoute, IHocProps } from './interfaces'
 
 const hocInstant = hocSingleton.getInstance()
 
@@ -15,7 +15,7 @@ const combineRoute: Function = (appRoutes: { [key: string]: Array<IAppRoute> }) 
     route.setUpStore()
     let resultComponent = route.component
     if (Array.isArray(route.hocs)) {
-      route.hocs.forEach((hoc: string) => {
+      route.hocs.forEach((hoc: IHocProps) => {
         resultComponent = hocInstant.call(hoc, resultComponent)
       })
     }

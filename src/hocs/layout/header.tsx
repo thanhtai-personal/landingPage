@@ -18,6 +18,7 @@ import drakenxImageNotext from 'root/asserts/images/logo_notext.svg'
 import enFlagImage from 'root/asserts/images/en-US.svg'
 
 interface HeaderProps {
+  isFixed: boolean
 }
 
 const useStyles = (props: HeaderProps) => (makeStyles((theme: Theme) =>
@@ -166,7 +167,7 @@ const useStyles = (props: HeaderProps) => (makeStyles((theme: Theme) =>
 const Header = (props: HeaderProps) => {
   const minWidth767 = useMediaQuery('(min-width:767px)')
   const classes = useStyles(props)
-
+  const { isFixed } = props
   const [isOpenLanguage, setIsOpenLanguage] = React.useState<boolean>(false);
 
   const handleLanguagesMenu = useCallback((event: React.MouseEvent<HTMLElement>) => {
@@ -174,7 +175,7 @@ const Header = (props: HeaderProps) => {
   }, [isOpenLanguage])
 
   return (
-    <AppBar position='static' className={classes.root}>
+    <AppBar position={isFixed ? 'fixed' : 'static'} className={classes.root}>
       <Toolbar className={classes.toolBar}>
         <Typography className={classes.title}>
           {minWidth767 ? <img alt='drakenx-image' src={drakenxImage}></img>
@@ -183,7 +184,7 @@ const Header = (props: HeaderProps) => {
         <div className={classes.rightMenu}>
           <ButtonGroup className={classes.authButtonGroup}>
             <Button className={classes.loginButton} type={buttonType.Primary}><Link className={classes.linkInButton} to='/login'>Login</Link></Button>
-            <Button className={classes.registerButton} type={buttonType.Secondary}><Link className={classes.linkInButton} to='/register'>Register</Link></Button>
+            <Button className={classes.registerButton} type={buttonType.Secondary}><Link className={classes.linkInButton} to='/registration'>Register</Link></Button>
           </ButtonGroup>
           <IconButton className={classes.settingsIcon}
             aria-controls='menu-appbar'
