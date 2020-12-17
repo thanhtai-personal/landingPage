@@ -70,13 +70,19 @@ const useStyles = (props: HeaderProps) => (makeStyles((theme: Theme) =>
       height: '32px',
       minWidth: '50px',
       borderRadius: '33px 0 0 33px',
-      padding: '0 10px',
+      padding: '0 30px',
+      '@media(max-width:767px)': {
+        padding: '0 20px'
+      },
     },
     registerButton: {
       height: '32px',
       minWidth: '50px',
       borderRadius: '0 33px 33px 0',
-      padding: '0 10px',
+      padding: '0 30px',
+      '@media(max-width:767px)': {
+        padding: '0 20px'
+      },
     },
     menuLanguages: {
       zIndex: 2,
@@ -139,6 +145,7 @@ const useStyles = (props: HeaderProps) => (makeStyles((theme: Theme) =>
       fontWeight: 300
     },
     languageLabel: {
+      fontSize: '100%'
     },
     languageIcon: {
       color: 'rgb(119, 129, 139)',

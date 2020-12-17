@@ -29,7 +29,9 @@ const useStyles = (props: any) => (makeStyles((theme: Theme) =>
     },
     optionsList: {
       backgroundColor: '#556df6',
-      borderRadius: '0 0 7px 7px'
+      borderRadius: '0 0 7px 7px',
+      paddingTop: 0,
+      paddingBottom: 0
     },
     selectionButton: {
       textTransform: 'none',
