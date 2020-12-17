@@ -28,7 +28,7 @@ const blockChainRoutes: Array<IAppRoute> = [
     path: '/login',
     isExact: true,
     component: LoginContainer,
-    hocs: [{ key: 'useHeader', params: [] }, { key: 'useMultiThemes', params: [] }],
+    hocs: [{ key: 'useHeader', params: [true] }, { key: 'useMultiThemes', params: [] }],
     setUpStore: setUpFeature,
     childrenRoute: []
   }

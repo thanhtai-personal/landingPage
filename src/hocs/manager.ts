@@ -31,7 +31,7 @@ function createHocs() {
 
 
     call: (hocProps: IHocProps, wrappedComponent: React.FC) => {
-      return hocObj[hocProps.key](wrappedComponent, [...hocProps.params])
+      return hocObj[hocProps.key](wrappedComponent, ...hocProps.params)
     },
 
     // Adds a new HOC with the specified key

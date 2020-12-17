@@ -31,7 +31,7 @@ const useStyles = (props: HeaderProps) => (makeStyles((theme: Theme) =>
       display: 'flex',
       justifyContent: 'space-between',
       borderBottom: '1px solid #2d3339',
-      paddingRight: 0
+      padding: 0,
     },
     title: {
       cursor: 'pointer',
@@ -179,7 +179,7 @@ const Header = (props: HeaderProps) => {
       <Toolbar className={classes.toolBar}>
         <Typography className={classes.title}>
           {minWidth767 ? <img alt='drakenx-image' src={drakenxImage}></img>
-            : <img alt='drakenx-image-no-text' src={drakenxImageNotext}></img>}
+            : <img alt='drakenx-image-no-text' src={drakenxImageNotext} height='45px'></img>}
         </Typography>
         <div className={classes.rightMenu}>
           <ButtonGroup className={classes.authButtonGroup}>
