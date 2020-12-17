@@ -16,7 +16,7 @@ interface ISelectionMenuProps {
   defaultValue: string
 }
 
-const useStyles = makeStyles((theme: Theme) =>
+const useStyles = (props: any) => (makeStyles((theme: Theme) =>
   createStyles({
     root: {
       display: 'flex',
@@ -41,6 +41,7 @@ const useStyles = makeStyles((theme: Theme) =>
       alignItems: 'center',
       paddingLeft: '3px',
       paddingRight: '3px',
+      opacity: props?.open ? 0.5 : 1,
       '&:hover': {
         boxShadow: `0 0 10px 0 #556df6`,
         backgroundColor: '#556df6',
@@ -52,14 +53,15 @@ const useStyles = makeStyles((theme: Theme) =>
       background: 'transparent'
     }
   }),
-)
+))()
 
 export default function SelectionMenu(props: ISelectionMenuProps) {
-  const classes = useStyles()
+  const [open, setOpen] = React.useState(false)
+
+  const classes = useStyles({ open })
 
   const { onClickItem, items, defaultValue } = props
 
-  const [open, setOpen] = React.useState(false)
   const anchorRef = React.useRef<HTMLButtonElement>(null)
 
   const handleToggle = useCallback(() => {
