@@ -103,7 +103,10 @@ const useStyles = (props: any) => (makeStyles((theme: Theme) =>
       },
     },
     rightElementImage: {
-      width: '80%'
+      width: '80%',
+      '@media(max-width:767px)': {
+        marginLeft: '10%'
+      },
     },
     reportNumber: {
       color: '#556df6',
