@@ -11,7 +11,7 @@ const appRouteManager = appRouteSingleton.getInstance()
 function AppRoute () {
   appRouteManager.add(RouteGroups.blockChainGames, blockChainRoutes)
   return (
-    <BrowserRouter> { /* your usual react-router v4/v5 routing */}
+    <BrowserRouter basename='/'> { /* your usual react-router v4/v5 routing */}
       <Switch>
         {appRouteManager.reduce()}
         <Route render={() => (<div>Route not found!</div>)} />

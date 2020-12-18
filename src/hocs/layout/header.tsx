@@ -163,7 +163,7 @@ const useStyles = (props: HeaderProps) => (makeStyles((theme: Theme) =>
         boxSizing: 'border-box'
       }
     },
-    linkInButton: {
+    linkButton: {
       color: 'white',
       textDecoration: 'none'
     }
@@ -185,13 +185,15 @@ const Header = (props: HeaderProps) => {
     <AppBar position={isFixed ? 'fixed' : 'static'} className={classes.root}>
       <Toolbar className={classes.toolBar}>
         <Typography className={classes.title}>
-          {minWidth767 ? <img alt='drakenx-image' src={drakenxImage}></img>
+          {// eslint-disable-next-line
+          minWidth767 ? <img alt='drakenx-image' src={drakenxImage}></img>
+          // eslint-disable-next-line
             : <img alt='drakenx-image-no-text' src={drakenxImageNotext} height='45px'></img>}
         </Typography>
         <div className={classes.rightMenu}>
           <ButtonGroup className={classes.authButtonGroup}>
-            <Button className={classes.loginButton} type={buttonType.Primary}><Link className={classes.linkInButton} to='/login'>Login</Link></Button>
-            <Button className={classes.registerButton} type={buttonType.Secondary}><Link className={classes.linkInButton} to='/registration'>Register</Link></Button>
+            <Button className={classes.loginButton} type={buttonType.Primary}><Link className={classes.linkButton} to='/login'>Login</Link></Button>
+            <Button className={classes.registerButton} type={buttonType.Secondary}><Link className={classes.linkButton} to='/registration'>Register</Link></Button>
           </ButtonGroup>
           <IconButton className={classes.settingsIcon}
             aria-controls='menu-appbar'

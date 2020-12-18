@@ -17,6 +17,16 @@ const blockChainRoutes: Array<IAppRoute> = [
     childrenRoute: []
   },
   {
+    key: 'homePage',
+    path: '/home',
+    isExact: true,
+    component: HomeContainer,
+    hocs: [{ key: 'useHeader', params: [] }, { key: 'useFooter', params: [] }
+    , { key: 'useDocumentTitle', params: [] }, { key: 'useMultiThemes', params: [] }],
+    setUpStore: setUpFeature,
+    childrenRoute: []
+  },
+  {
     key: 'register',
     path: '/registration',
     isExact: true,

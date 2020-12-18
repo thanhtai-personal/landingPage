@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { useCallback, useState } from 'react'
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles'
 import { Container, Typography, Grid } from '@material-ui/core'
 import { Link } from 'react-router-dom'
 import Button, { buttonType } from 'root/components/materialUIs/button'
 import AntTextField from 'root/components/materialUIs/textField'
 import backgroundImage from 'root/asserts/images/banner.jpg'
+import successPopupImage from 'root/asserts/images/successPopup.svg'
 
 const useStyles = (props: any) => (makeStyles((theme: Theme) =>
   createStyles({
@@ -89,6 +90,16 @@ const useStyles = (props: any) => (makeStyles((theme: Theme) =>
       fontWeight: 400,
       fontSize: '13px',
       lineHeight: '13px',
+    },
+    buttonLink: {
+      textDecoration: 'none',
+      color: '#fff',
+      width: '100%'
+    },
+    buttonHome: {
+      width: '100%',
+      height: '48px',
+      fontWeight: 600
     }
   })
 ))()
@@ -99,6 +110,54 @@ interface IForgotPassProps {
 
 const ForgotPass = (props: IForgotPassProps) => {
   const classes = useStyles(props)
+
+  const [isSent, setIsSent] = useState(false)
+
+  const handleConfirm = useCallback((event: MouseEvent) => {
+    setIsSent(true)
+  }, [setIsSent])
+
+  const resetForm = (
+    <form>
+      <AntTextField label='Email' />
+      <Typography className={classes.errorMessage}></Typography>
+      <Grid container className={classes.actions}>
+        <Grid item xs className={classes.linkArea}>
+          <span className={classes.dontYouHaveAccount}>Already registered? <Link className={classes.link} to='/login'>
+            Login
+              </Link></span>
+        </Grid>
+        <Grid item>
+          <Button
+            className={classes.buttonSubmit}
+            type={buttonType.Primary}
+            onClick={handleConfirm}
+          >
+            Send Email
+          </Button>
+        </Grid>
+      </Grid>
+    </form>
+  )
+
+  const confirmAside = (
+    <aside className={classes.boxAside}><br />
+      <Typography align={'center'}><img alt='v-check' src={successPopupImage}></img></Typography>
+      <br />
+      <Typography style={{ color: 'rgb(41, 204, 151)'}}>A reset password link have sent to your email.</Typography>
+      <Typography style={{ color: 'rgb(41, 204, 151)'}}>Please follow the instructions in the email to continue.</Typography>
+      <br />
+      <Grid container className={classes.actions}>
+        <Button
+          className={classes.buttonHome}
+          type={buttonType.Primary}
+        >
+          <Link className={classes.buttonLink} to='/home'>Home</Link>
+        </Button>
+      </Grid>
+    </aside>
+  )
+
   return (
     <div className={classes.root}>
       <Container className={classes.box} maxWidth='xs'>
@@ -106,25 +165,7 @@ const ForgotPass = (props: IForgotPassProps) => {
           <Typography className={classes.title}>Reset password</Typography>
           <Typography className={classes.subTitle}>For security purposes, no withdrawals are allowed in 24 hours after resetting password completed.</Typography>
         </aside>
-        <form>
-          <AntTextField label='Email' />
-          <Typography className={classes.errorMessage}></Typography>
-          <Grid container className={classes.actions}>
-            <Grid item xs className={classes.linkArea}>
-              <span className={classes.dontYouHaveAccount}>Already registered? <Link className={classes.link} to='/login'>
-              Login
-              </Link></span>
-            </Grid>
-            <Grid item>
-              <Button
-                className={classes.buttonSubmit}
-                type={buttonType.Primary}
-              >
-                Send Email
-              </Button>
-            </Grid>
-          </Grid>
-        </form>
+        {isSent ? confirmAside : resetForm}
       </Container>
     </div>
   )
