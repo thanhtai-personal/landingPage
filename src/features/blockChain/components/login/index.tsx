@@ -115,7 +115,7 @@ const Login = (props: ILoginProps) => {
               <Link to='/forgot-password' className={classes.link}>
                 Forgot password
               </Link>
-              <span className={classes.dontYouHaveAccount}>Don't you have account?<Link className={classes.link} to='/registration'>
+              <span className={classes.dontYouHaveAccount}>Don't you have account? <Link className={classes.link} to='/registration'>
                 Register
               </Link></span>
             </Grid>
