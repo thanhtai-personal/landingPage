@@ -1,6 +1,7 @@
 import useMultiThemes from './theme'
 import useHeader from './layout/useHeader'
 import useFooter from './layout/useFooter'
+import useDocumentTitle from './useDocumentTitle'
 import { IHocProps } from 'root/managers/appRoute/interfaces'
 
 const combineHoc = (hocObj: { [key: string]: Function }) => {
@@ -12,13 +13,15 @@ function createHocs() {
   const hocObj: { [key: string]: Function } = {
     useMultiThemes,
     useHeader,
-    useFooter
+    useFooter,
+    useDocumentTitle
   }
   // Create the initial combinedHOC
   let hocs : Array<Function> = [
     useMultiThemes,
     useHeader,
-    useFooter
+    useFooter,
+    useDocumentTitle
   ]
 
   return {

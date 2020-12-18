@@ -11,7 +11,8 @@ const blockChainRoutes: Array<IAppRoute> = [
     path: '/',
     isExact: true,
     component: HomeContainer,
-    hocs: [{ key: 'useHeader', params: [] }, { key: 'useFooter', params: [] }, { key: 'useMultiThemes', params: [] }],
+    hocs: [{ key: 'useHeader', params: [] }, { key: 'useFooter', params: [] }
+    , { key: 'useDocumentTitle', params: [] }, { key: 'useMultiThemes', params: [] }],
     setUpStore: setUpFeature,
     childrenRoute: []
   },
@@ -20,7 +21,7 @@ const blockChainRoutes: Array<IAppRoute> = [
     path: '/registration',
     isExact: true,
     component: RegisterContainer,
-    hocs: [{ key: 'useHeader', params: [true] }, { key: 'useMultiThemes', params: [] }],
+    hocs: [{ key: 'useHeader', params: [true] }, { key: 'useDocumentTitle', params: [] }, { key: 'useMultiThemes', params: [] }],
     setUpStore: setUpFeature,
     childrenRoute: []
   },
@@ -29,7 +30,7 @@ const blockChainRoutes: Array<IAppRoute> = [
     path: '/login',
     isExact: true,
     component: LoginContainer,
-    hocs: [{ key: 'useHeader', params: [true] }, { key: 'useMultiThemes', params: [] }],
+    hocs: [{ key: 'useHeader', params: [true] }, { key: 'useDocumentTitle', params: [] }, { key: 'useMultiThemes', params: [] }],
     setUpStore: setUpFeature,
     childrenRoute: []
   },
