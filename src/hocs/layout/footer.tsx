@@ -65,6 +65,18 @@ const useStyles = (props: FooterProps) => (makeStyles((theme: Theme) =>
     socialIcon: {
       position: 'relative',
       top: '5px'
+    },
+    telegram: {
+      opacity: 1,
+      color: '#3ac4ff'
+    },
+    facebook: {
+      opacity: 1,
+      color: '#297cfa'
+    },
+    twiter: {
+      opacity: 1,
+      color: '#3ac4ff'
     }
   }),
 ))()
@@ -85,12 +97,12 @@ const Footer = (props: FooterProps) => {
     <Typography className={classes.linkText} variant='body2'>Risk Warning</Typography>
     <Typography className={classes.linkText} variant='body2'>Liability and Indemnity</Typography></>
   const social = <><Typography className={classes.footerTextTitle} variant='body2'>Community</Typography>
-    <Typography className={classes.linkText} style={{ opacity: 1, color: 'steelblue' }} variant='body2'>
+    <Typography className={[classes.linkText, classes.telegram].join(' ')} variant='body2'>
       <TelegramIcon className={classes.socialIcon} />Telegram
     </Typography>
-    <Typography className={classes.linkText} style={{ opacity: 1, color: '#556df6' }} variant='body2'>
+    <Typography className={[classes.linkText, classes.facebook].join(' ')} variant='body2'>
       <FacebookIcon  className={classes.socialIcon} />Facebook</Typography>
-    <Typography className={classes.linkText} style={{ opacity: 1, color: 'steelblue' }} variant='body2'>
+    <Typography className={[classes.linkText, classes.twiter].join(' ')} variant='body2'>
       <TwitterIcon  className={classes.socialIcon} />Twitter
     </Typography></>
   const warning = <Grid item xs={12} className={classes.riskWarning}>
