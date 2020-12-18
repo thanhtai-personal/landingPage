@@ -73,7 +73,7 @@ const useStyles = (props: HeaderProps) => (makeStyles((theme: Theme) =>
       fontSize: '13px',
       fontWeight: 600,
       '@media(max-width:767px)': {
-        padding: '0 20px'
+        padding: '0 15px'
       },
     },
     registerButton: {
@@ -84,7 +84,7 @@ const useStyles = (props: HeaderProps) => (makeStyles((theme: Theme) =>
       fontSize: '13px',
       fontWeight: 600,
       '@media(max-width:767px)': {
-        padding: '0 20px'
+        padding: '0 15px'
       },
     },
     menuLanguages: {

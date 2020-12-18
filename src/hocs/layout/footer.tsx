@@ -51,7 +51,8 @@ const useStyles = (props: FooterProps) => (makeStyles((theme: Theme) =>
       cursor: 'pointer',
       color: 'white',
       '&:hover': {
-        color: 'blue'
+        color: '#556df6',
+        opacity: 1
       }
     },
     paddingTop: {
