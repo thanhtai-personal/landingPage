@@ -165,7 +165,9 @@ const useStyles = (props: HeaderProps) => (makeStyles((theme: Theme) =>
     },
     linkButton: {
       color: 'white',
-      textDecoration: 'none'
+      textDecoration: 'none',
+      fontSize: '13px',
+      fontWeight: 600
     }
   }),
 ))()
