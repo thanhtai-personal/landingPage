@@ -107,8 +107,8 @@ const Login = (props: ILoginProps) => {
           <Typography className={classes.subTitle}>Login to your account to play</Typography>
         </aside>
         <form>
-          <AntTextField label='Email or username' />
-          <AntTextField label='Password' type='password'/>
+          <AntTextField label='Email or username' errorObj={{message: 'Required field'}}/>
+          <AntTextField label='Password' type='password' errorObj={{message: 'Required field'}}/>
           <Typography className={classes.errorMessage}></Typography>
           <Grid container className={classes.actions}>
             <Grid item xs className={classes.linkArea}>
@@ -129,7 +129,6 @@ const Login = (props: ILoginProps) => {
             </Grid>
           </Grid>
         </form>
-
       </Container>
     </div>
   )

@@ -110,8 +110,8 @@ const Register = (props: IRegisterProps) => {
           <Typography className={classes.subTitle}>Creating a account for trading and getting profit with DrakenX</Typography>
         </aside>
         <form>
-          <AntTextField label='Email' />
-          <AntTextField label='Password' type='password'/>
+          <AntTextField label='Email' errorObj={{message: 'Required field'}}/>
+          <AntTextField label='Password' type='password' errorObj={{message: 'Required field'}}/>
           <Grid container spacing={3}>
             <Grid item xs={6}><AntTextField label='Username' /></Grid>
             <Grid item xs={6}><AntTextField label='Referal code' /></Grid>

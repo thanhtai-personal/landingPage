@@ -85,7 +85,8 @@ const useStyles = (props: any) => (makeStyles((theme: Theme) =>
       '@media(max-width:767px)': {
         fontSize: '26px',
         lineHeight: '28px',
-        marginBottom: '15px'
+        marginBottom: '15px',
+        textAlign: 'center',
       }
     },
     subTitle: {

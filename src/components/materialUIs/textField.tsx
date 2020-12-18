@@ -61,7 +61,7 @@ const useStyles = (props: any) => (makeStyles((theme: Theme) => createStyles({
 
 const AntTextField = (props: any) => {
   const classes = useStyles(props)
-  const { label, name, className, value, type, onChange } = props
+  const { label, name, className, value, type, onChange, errorObj = {} } = props
   const [isShowPassword, setIsShowPassword] = useState(false)
   const handleEyeClick = useCallback(() => {
     setIsShowPassword(!isShowPassword)
@@ -81,6 +81,7 @@ const AntTextField = (props: any) => {
         />}
       </div>
       <div className={classes.warning}>
+        {errorObj.message}
       </div>
     </div>
   )

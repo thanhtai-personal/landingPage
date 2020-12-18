@@ -119,7 +119,7 @@ const ForgotPass = (props: IForgotPassProps) => {
 
   const resetForm = (
     <form>
-      <AntTextField label='Email' />
+      <AntTextField label='Email' errorObj={{message: 'Required field'}}/>
       <Typography className={classes.errorMessage}></Typography>
       <Grid container className={classes.actions}>
         <Grid item xs className={classes.linkArea}>
