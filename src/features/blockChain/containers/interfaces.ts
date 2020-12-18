@@ -9,3 +9,7 @@ export interface ILoginContainerProps {
 export interface IRegisterContainerProps {
 
 }
+
+export interface IForgotPasswordProps {
+  
+}

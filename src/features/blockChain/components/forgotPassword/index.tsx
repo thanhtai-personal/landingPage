@@ -16,7 +16,7 @@ const useStyles = (props: any) => (makeStyles((theme: Theme) =>
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
-      minHeight: '675px',
+      minHeight: '450px',
     },
     box: {
       width: '460px',
@@ -34,14 +34,12 @@ const useStyles = (props: any) => (makeStyles((theme: Theme) =>
       display: 'flex',
       flexDirection: 'column',
       marginBottom: '30px',
-      alignContent: 'center',
     },
     title: {
       fontWeight: 600,
       fontSize: '30px',
       color: '#556df6',
       marginBottom: '10px',
-      textAlign: 'center',
       '@media(max-width:767px)': {
         fontSize: '26px'
       },
@@ -50,8 +48,7 @@ const useStyles = (props: any) => (makeStyles((theme: Theme) =>
       fontWeight: 400,
       fontSize: '15px',
       lineHeight: '24px',
-      color: '#fff',
-      textAlign: 'center',
+      color: '#77818b',
       '@media(max-width:767px)': {
         fontSize: '13px',
         lineHeight: '20px',
@@ -96,26 +93,21 @@ const useStyles = (props: any) => (makeStyles((theme: Theme) =>
   })
 ))()
 
-interface IRegisterProps {
+interface IForgotPassProps {
 
 }
 
-const Register = (props: IRegisterProps) => {
+const ForgotPass = (props: IForgotPassProps) => {
   const classes = useStyles(props)
   return (
     <div className={classes.root}>
       <Container className={classes.box} maxWidth='xs'>
         <aside className={classes.boxAside}>
-          <Typography className={classes.title}>Create account</Typography>
-          <Typography className={classes.subTitle}>Creating a account for trading and getting profit with DrakenX</Typography>
+          <Typography className={classes.title}>Reset password</Typography>
+          <Typography className={classes.subTitle}>For security purposes, no withdrawals are allowed in 24 hours after resetting password completed.</Typography>
         </aside>
         <form>
           <AntTextField label='Email' />
-          <AntTextField label='Password' type='password'/>
-          <Grid container spacing={3}>
-            <Grid item xs={6}><AntTextField label='Username' /></Grid>
-            <Grid item xs={6}><AntTextField label='Referal code' /></Grid>
-          </Grid>
           <Typography className={classes.errorMessage}></Typography>
           <Grid container className={classes.actions}>
             <Grid item xs className={classes.linkArea}>
@@ -128,15 +120,14 @@ const Register = (props: IRegisterProps) => {
                 className={classes.buttonSubmit}
                 type={buttonType.Primary}
               >
-                Register
+                Send Email
               </Button>
             </Grid>
           </Grid>
         </form>
-
       </Container>
     </div>
   )
 }
 
-export default Register
+export default ForgotPass
