@@ -3,8 +3,7 @@ import { createStyles, makeStyles, Theme } from '@material-ui/core/styles'
 import { Link } from 'react-router-dom'
 import {
   AppBar, Toolbar, Typography
-  , IconButton, ButtonGroup
-  , Grid, FormControl
+  , IconButton, Grid, FormControl
   , useMediaQuery, ListItemText
 } from '@material-ui/core'
 import {
@@ -71,6 +70,8 @@ const useStyles = (props: HeaderProps) => (makeStyles((theme: Theme) =>
       minWidth: '50px',
       borderRadius: '33px 0 0 33px',
       padding: '0 30px',
+      fontSize: '13px',
+      fontWeight: 600,
       '@media(max-width:767px)': {
         padding: '0 20px'
       },
@@ -80,6 +81,8 @@ const useStyles = (props: HeaderProps) => (makeStyles((theme: Theme) =>
       minWidth: '50px',
       borderRadius: '0 33px 33px 0',
       padding: '0 30px',
+      fontSize: '13px',
+      fontWeight: 600,
       '@media(max-width:767px)': {
         padding: '0 20px'
       },
@@ -166,8 +169,6 @@ const useStyles = (props: HeaderProps) => (makeStyles((theme: Theme) =>
     linkButton: {
       color: 'white',
       textDecoration: 'none',
-      fontSize: '13px',
-      fontWeight: 600
     }
   }),
 ))()
@@ -193,10 +194,10 @@ const Header = (props: HeaderProps) => {
             : <img alt='drakenx-image-no-text' src={drakenxImageNotext} height='45px'></img>}
         </Typography>
         <div className={classes.rightMenu}>
-          <ButtonGroup className={classes.authButtonGroup}>
-            <Button className={classes.loginButton} type={buttonType.Primary}><Link className={classes.linkButton} to='/login'>Login</Link></Button>
-            <Button className={classes.registerButton} type={buttonType.Secondary}><Link className={classes.linkButton} to='/registration'>Register</Link></Button>
-          </ButtonGroup>
+          <div className={classes.authButtonGroup}>
+            <Link className={classes.linkButton} to='/login'><Button className={classes.loginButton} type={buttonType.Primary}>Login</Button></Link>
+            <Link className={classes.linkButton} to='/registration'><Button className={classes.registerButton} type={buttonType.Secondary}>Register</Button></Link>
+          </div>
           <IconButton className={classes.settingsIcon}
             aria-controls='menu-appbar'
             aria-haspopup='true'
