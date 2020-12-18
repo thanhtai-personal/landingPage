@@ -27,25 +27,33 @@ const MaterialUIButton = (props: any) => {
       case ButtonType.Primary:
         return {
           backgroundColor: '#556df6',
-          textColor: 'white',
+          textColor: '#fff',
           boxShadowColor:'#556df6',
           backgroundHoverColor: '#556df6',
-          textHoverColor:'white',
+          textHoverColor:'#fff',
         }
       case ButtonType.Secondary:
         return {
           backgroundColor: '#f79339',
-          textColor: 'white',
+          textColor: '#fff',
           boxShadowColor:'#f79339',
           backgroundHoverColor: '#f79339',
-          textHoverColor:'white',
+          textHoverColor:'#fff',
         }
       case ButtonType.Default:
         return {
-          backgroundColor: 'white',
+          backgroundColor: '#fff',
           textColor: '#556df6',
-          boxShadowColor:'white',
-          backgroundHoverColor: 'white',
+          boxShadowColor:'#fff',
+          backgroundHoverColor: '#fff',
+          textHoverColor:'#556df6',
+        }
+      case ButtonType.Danger:
+        return {
+          backgroundColor: '#bb3232',
+          textColor: '#fff',
+          boxShadowColor:'#fff',
+          backgroundHoverColor: '#bb3232',
           textHoverColor:'#556df6',
         }
       default:
