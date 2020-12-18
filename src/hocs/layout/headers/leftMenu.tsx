@@ -62,7 +62,7 @@ const useStyles = (props: any) => (makeStyles((theme: Theme) =>
     },
     gameMenuPoper: {
       minWidth: '58px',
-      left: '216px',
+      //left: '216px',
       top: '50px',
       paddingTop: '10px',
       boxSizing: 'border-box',

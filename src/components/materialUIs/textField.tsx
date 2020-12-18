@@ -61,7 +61,7 @@ const useStyles = (props: any) => (makeStyles((theme: Theme) => createStyles({
 
 const AntTextField = (props: any) => {
   const classes = useStyles(props)
-  const { label, name, className, value, type, onChange, errorObj = {} } = props
+  const { label, name, className, value, type, onChange, errorObj = {}, buttonCopy, ...nestedProps } = props
   const [isShowPassword, setIsShowPassword] = useState(false)
   const handleEyeClick = useCallback(() => {
     setIsShowPassword(!isShowPassword)
@@ -73,12 +73,13 @@ const AntTextField = (props: any) => {
     <div className={[classes.formGroup, className].join(' ')}>
       <label className={classes.label}>{label}</label>
       <div className={classes.formInput}>
-        <input className={classes.inputArea} type={!isShowPassword ? type : ''} name={name} value={value} onChange={handleChange} />
+        <input {...nestedProps} className={classes.inputArea} type={!isShowPassword ? type : ''} name={name} value={value} onChange={handleChange} />
         {type=== 'password' && <img onClick={handleEyeClick}
           className={classes.eyeIcon}
           alt='eye-icon'
           src={isShowPassword ? eyeOpenIcon : eyeIcon}
         />}
+        {buttonCopy && buttonCopy}
       </div>
       <div className={classes.warning}>
         {errorObj.message}
